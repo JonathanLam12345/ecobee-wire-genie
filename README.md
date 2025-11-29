@@ -1,6 +1,6 @@
 # ecobee_wiring_diagram
 
-A new Flutter project.
+Hack the Hive December 2025 Project
 
 ## Getting Started
 
