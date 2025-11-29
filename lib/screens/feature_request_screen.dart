@@ -47,11 +47,10 @@ class FeatureRequestScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 20),
-                // Submit Button (Placeholder functionality)
                 ElevatedButton.icon(
                   onPressed: () {
-                    // TODO: SHOEIB'S Implement Firebase POST logic here
-                    // TODO: If user enters "ADMIN" here, the list of all submitted feature requests will show up below the text form. (Easter Egg Feature)
+                    // TODO: (1) SHOEIB'S Implement Firebase POST logic here
+                    // TODO: (2) If user enters "ADMIN" here, the list of all submitted feature requests will show up below the text form. (Easter Egg Feature)
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(
                         content: Text('Request submitted! (Functionality TO-DO by Shoeib)'),
