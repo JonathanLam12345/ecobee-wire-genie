@@ -277,7 +277,8 @@ class _PremiumWiringDiagramWidgetState
 
  @override
   Widget build(BuildContext context) {
-    const double imageWidth = 431, imageHeight = 414;
+   const double imageWidth = 431, imageHeight = 414;
+   // const double imageWidth = 431, imageHeight = 414;
 
     // Select image based on diagram index
     final String imagePath = widget.diagramIndex == 1
