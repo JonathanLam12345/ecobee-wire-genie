@@ -3,9 +3,26 @@ import 'package:ecobee_wiring_diagram/screens/enhanced_screen.dart';
 import 'package:ecobee_wiring_diagram/screens/feature_request_screen.dart';
 import 'package:ecobee_wiring_diagram/screens/home_screen.dart';
 import 'package:ecobee_wiring_diagram/screens/premium_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(const WiringApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: const FirebaseOptions(
+        apiKey: "AIzaSyBsLFYQiqETT9eqWTzvOF_xCp0OlHI_LMs",
+        authDomain: "ecobee-wiring-diagrams.firebaseapp.com",
+        projectId: "ecobee-wiring-diagrams",
+        storageBucket: "ecobee-wiring-diagrams.firebasestorage.app",
+        messagingSenderId: "884968177567",
+        appId: "1:884968177567:web:60ad66ebd35594ce8e47aa",
+        measurementId: "G-G4YFR417CY"
+    ),
+  );
+
+
+  runApp(const WiringApp());
+}
 
 class WiringApp extends StatelessWidget {
   const WiringApp({super.key});
@@ -19,9 +36,9 @@ class WiringApp extends StatelessWidget {
       home: const HomeScreen(),
       routes: {
         '/home': (context) => const HomeScreen(),
-        '/about': (context) => const AboutScreen(),
-        '/premium': (context) => const PremiumScreen(),
-        '/enhanced': (context) => const EnhancedScreen(),
+        //'/about': (context) => const AboutScreen(),
+       // '/premium': (context) => const PremiumScreen(),
+       // '/enhanced': (context) => const EnhancedScreen(),
         '/feature_request': (context) => const FeatureRequestScreen(),
       },
     );

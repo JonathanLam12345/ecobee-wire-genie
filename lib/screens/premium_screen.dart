@@ -30,10 +30,12 @@ class _PremiumScreenState extends State<PremiumScreen> {
                 runSpacing: 16.0,
                 alignment: WrapAlignment.center,
                 children: List.generate(10, (index) {
-                  return PremiumWiringDiagramWidget(
-                    key: GlobalKey(), // unique key per instance
-                    diagramIndex: index,
-                  );
+                  return SizedBox.shrink();
+                  //   return
+                  // PremiumWiringDiagramWidget(
+                  //   key: GlobalKey(), // unique key per instance
+                  //   diagramIndex: index,
+                  // );
                 }),
               ),
             ),

@@ -84,31 +84,12 @@ class _HomeScreenState extends State<HomeScreen> {
           style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 16),
-        // _buildInstructionStep(
-        //   Icons.gesture,
-        //   'Select a Diagram',
-        //   "Use the **'Thermostat' dropdown** in the top navigation bar to choose a specific thermostat model (e.g., 'Premium') and view its associated wiring diagrams.",
-        // ),
-        // _buildInstructionStep(
-        //   Icons.color_lens,
-        //   'Change Wire Color',
-        //   '**Click directly on any wire** in the schematic to open a color picker and change its color to match your physical installation.',
-        // ),
-        // _buildInstructionStep(
-        //   Icons.edit,
-        //   'Rename Wire ID',
-        //   '**Toggle "Show Wire IDs"** on, then **click on the white wire ID label** (e.g., Rc, Y1) to rename it. This helps match the labels in your home.',
-        // ),
-        // _buildInstructionStep(
-        //   Icons.save,
-        //   'Save Your Custom Diagram',
-        //   'Click the **"Save Image"** button to download a PNG image of the schematic, including your custom wire colors and labels, and then send it off to the Smart Owner.',
-        // ),
+
       ],
     );
   }
 
-  // Widget for the right column content: What's New in V1.1.0
+
   Widget _buildWhatsNewSection() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -123,11 +104,7 @@ class _HomeScreenState extends State<HomeScreen> {
         //   'Nov 27 2025',
         //   'Added the **Premium Thermostat** wiring diagrams (accessible via the dropdown). Implemented a **new Hover Dropdown menu** for better web navigation. Fixed a bug where clicking outside the dropdown didn\'t dismiss it.',
         // ),
-        // _buildWhatsNewItem(
-        //   'V1.0.0',
-        //   'Oct 2025',
-        //   'Initial release with support for Conventional Heating and Cooling wiring diagrams. Features include wire color/ID editing and image saving.',
-        // ),
+
       ],
     );
   }
@@ -146,7 +123,7 @@ class _HomeScreenState extends State<HomeScreen> {
           // *** USING REUSABLE APP BAR ***
           appBar: const AppNavigationBar(showBackButton: false),
 
-          // Use Stack to place the version text absolutely
+
           body: Stack(
             children: [
               SelectableRegion(
