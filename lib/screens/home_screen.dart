@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 import '../app_bar/app_navigation_bar.dart';
-
+import 'package:url_launcher/url_launcher.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -69,10 +69,14 @@ class _HomeScreenState extends State<HomeScreen> {
             changes,
             style: const TextStyle(fontSize: 16),
           ),
+
+
         ],
       ),
     );
   }
+
+
 
   // Widget for the left column content: How to Use the Diagram Editor
   Widget _buildHowToUseSection() {
@@ -84,6 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
           style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 16),
+
 
       ],
     );

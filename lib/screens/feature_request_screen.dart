@@ -12,9 +12,10 @@ class FeatureRequestScreen extends StatelessWidget {
       backgroundColor: const Color(0xFFf9fafc),
 
       appBar: const AppNavigationBar(showBackButton: false),
-      body: Center(
+      body: Align(
+        alignment: Alignment.topCenter,
         child: SingleChildScrollView(
-          padding: const EdgeInsets.all(32.0),
+          padding: const EdgeInsets.only(top: 32.0),
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 600),
             child: Column(

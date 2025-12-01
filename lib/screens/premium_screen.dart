@@ -29,13 +29,13 @@ class _PremiumScreenState extends State<PremiumScreen> {
                 spacing: 16.0,
                 runSpacing: 16.0,
                 alignment: WrapAlignment.center,
-                children: List.generate(10, (index) {
-                  return SizedBox.shrink();
-                  //   return
-                  // PremiumWiringDiagramWidget(
-                  //   key: GlobalKey(), // unique key per instance
-                  //   diagramIndex: index,
-                  // );
+                children: List.generate(1, (index) {
+                  //return SizedBox.shrink();
+                    return
+                  PremiumWiringDiagramWidget(
+                    key: GlobalKey(), // unique key per instance
+                    diagramIndex: index,
+                   );
                 }),
               ),
             ),

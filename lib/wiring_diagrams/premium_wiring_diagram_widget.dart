@@ -3,12 +3,12 @@ import 'dart:html' as html;
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 
-import 'package:ecobee_wiring_diagram/paint_features/wire_painter.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import '../main.dart';
 import '../paint_features/color_picker_dialog.dart';
+import '../paint_features/wire_painter.dart';
 
 class PremiumWiringDiagramWidget extends StatefulWidget {
   final int diagramIndex;
