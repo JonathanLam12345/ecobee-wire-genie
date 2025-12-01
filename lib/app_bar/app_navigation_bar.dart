@@ -80,13 +80,12 @@ class AppNavigationBar extends StatelessWidget implements PreferredSizeWidget {
           },
         ),
         _buildNavBarButton(
-          label: "Switch+",
-          icon: Icons.lightbulb,
+          label: "Smart Security",
+          icon: Icons.security,
           onTap: () {
             // Add navigation logic for Switch+ here
           },
         ),
-
         _buildNavBarButton(
           label: "About us",
           icon: Icons.info,

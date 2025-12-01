@@ -32,7 +32,7 @@ class WiringApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Wiring Schematic',
+      title: 'WireGenie',
       theme: ThemeData(primarySwatch: Colors.blue),
       home: const HomeScreen(),
       routes: {
