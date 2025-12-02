@@ -1,5 +1,4 @@
 import 'package:firebase_core/firebase_core.dart';
-//import 'firebase_options.dart';
 
 import 'package:ecobee_wire_genie/screens/about_screen.dart';
 import 'package:ecobee_wire_genie/screens/feature_request_screen.dart';
@@ -17,6 +16,7 @@ Future<void> main() async {
     options: const FirebaseOptions(
         apiKey: "AIzaSyBsLFYQiqETT9eqWTzvOF_xCp0OlHI_LMs",
         authDomain: "ecobee-wiring-diagrams.firebaseapp.com",
+        databaseURL: "https://ecobee-wiring-diagrams-default-rtdb.firebaseio.com",
         projectId: "ecobee-wiring-diagrams",
         storageBucket: "ecobee-wiring-diagrams.firebasestorage.app",
         messagingSenderId: "884968177567",
