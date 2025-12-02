@@ -1,3 +1,6 @@
+import 'package:firebase_core/firebase_core.dart';
+//import 'firebase_options.dart';
+
 import 'package:ecobee_wire_genie/screens/about_screen.dart';
 import 'package:ecobee_wire_genie/screens/feature_request_screen.dart';
 import 'package:ecobee_wire_genie/screens/home_screen.dart';
@@ -6,6 +9,7 @@ import 'package:ecobee_wire_genie/screens/ecobee3_screen.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -46,7 +50,7 @@ class WiringApp extends StatelessWidget {
         '/premium': (context) => const PremiumScreen(),
         '/ecobee3': (context) => const Ecobee3Screen(),
        // '/enhanced': (context) => const EnhancedScreen(),
-        '/feature_request': (context) => const FeatureRequestScreen(),
+        '/feature_request': (context) => const FeatureRequestPage(),
       },
     );
   }
