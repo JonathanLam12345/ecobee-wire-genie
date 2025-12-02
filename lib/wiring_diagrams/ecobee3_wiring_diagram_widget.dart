@@ -10,18 +10,18 @@ import '../main.dart';
 import '../paint_features/color_picker_dialog.dart';
 import '../paint_features/wire_painter.dart';
 
-class PremiumWiringDiagramWidget extends StatefulWidget {
+class Ecobee3WiringDiagramWidget extends StatefulWidget {
   final int diagramIndex;
 
-  const PremiumWiringDiagramWidget({super.key, required this.diagramIndex});
+  const Ecobee3WiringDiagramWidget({super.key, required this.diagramIndex});
 
   @override
-  State<PremiumWiringDiagramWidget> createState() =>
-      _PremiumWiringDiagramWidgetState();
+  State<Ecobee3WiringDiagramWidget> createState() =>
+      _Ecobee3WiringDiagramWidgetState();
 }
 
-class _PremiumWiringDiagramWidgetState
-    extends State<PremiumWiringDiagramWidget> {
+class _Ecobee3WiringDiagramWidgetState
+    extends State<Ecobee3WiringDiagramWidget> {
   // RepaintBoundary key for capturing the image + wires
   final GlobalKey _captureKey = GlobalKey();
 

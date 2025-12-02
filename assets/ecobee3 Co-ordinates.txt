@@ -1,0 +1,51 @@
+ecobee3_Wiring_Accessory-1:
+
+Option 1:
+
+24V to ACC+ wire: [Offset(196, 199), Offset(323, 199)]
+C to ACC- wire: [(Offset(194, 215), Offset(323, 215)]
+
+Option 2: 
+
+24V to ACC+ wire: [Offset(194, 262), Offset(324, 262)]
+C to C wire: [Offset(196, 279), Offset(255, 281), Offset(257, 297)
+
+ecobee3_Wiring_Boiler-1
+
+Rc to R wire: [Offset(98, 104), Offset(165, 105), Offset(168, 194)]
+G to G wire: [Offset(97, 139), Offset(196, 124), Offset(198, 194)]
+Y to Y1 wire: [Offset(96, 156), Offset(136, 141), Offset(139, 193)]
+W1 to W1 wire: [Offset(96, 156), Offset(228, 159), Offset(229, 248)]
+Rh to R wire: [Offset(308, 93), Offset(245, 95), Offset(243, 249)]
+C to C wire: [Offset(308, 109), Offset(184, 113), Offset(183, 194)]
+
+
+ecobee3_Wiring_Conventional-1
+
+G to G wire: [Offset(96, 121), Offset(278, 122), Offset(281, 258)]
+Y to Y1 wire: [Offset(95, 138), Offset(187, 139), Offset(191, 258)]
+W1 to W1 wire: [Offset(94, 156), Offset(216, 157), Offset(220, 259)]
+Rh to R wire: [Offset(315, 88), Offset(253, 90), Offset(250, 258)]
+C to C wire: [Offset(315, 106), Offset(269, 109), Offset(267, 258)]
+
+ecobee3_Wiring_HeatPump-1
+
+G to G wire: [Offset(95, 118), Offset(264, 119), Offset(267, 259)]
+Y to Y1 wire: [Offset(95, 135), Offset(236, 137), Offset(238, 259)]
+W1 to W1 wire: [Offset(95, 153), Offset(205, 155), Offset(208, 258)]
+O/B to O/B wire: [Offset(96, 171), Offset(190, 173), Offset(193, 259)]
+Rh to R wire: [Offset(315, 88), Offset(285, 90), Offset(283, 259)]
+C to C wire: [Offset(315, 106), Offset(300, 110), Offset(299, 259)]
+
+ecobee3-stg-heatpump-1-stg-aux-with-PEK
+
+Rc to PEK R: [Offset(65, 65), Offset(91, 66), Offset(94, 285), Offset(125, 286)]
+G to PEK G: [Offset(65, 80), Offset(101, 81), Offset(104, 278), Offset(125, 279)]
+Y1 to PEK Y: [Offset(65, 95), Offset(82, 97), Offset(86, 272), Offset(124, 273)]
+W1 to PEK W: [Offset(65, 108), Offset(73, 109), Offset(76, 265), Offset(124, 266)]
+O/B to O/B: [Offset(65, 126), Offset(117, 127), Offset(121, 176), Offset(375, 180), Offset(377, 261)]
+PEK Y to Y: [Offset(179, 204), Offset(363, 205), Offset(365, 260)]
+PEK W to W: [Offset(179, 210), Offset(350, 212), Offset(352, 260)]
+PEK G to G: [Offset(179, 217), Offset(325, 223), Offset(338, 260)]
+PEK C to C: [Offset(179, 222), Offset(325, 224), Offset(326, 260)]
+PEK R to R: [Offset(179, 229), Offset(311, 231), Offset(312, 260)]

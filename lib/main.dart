@@ -1,9 +1,11 @@
+import 'package:ecobee_wire_genie/screens/about_screen.dart';
 import 'package:ecobee_wire_genie/screens/feature_request_screen.dart';
 import 'package:ecobee_wire_genie/screens/home_screen.dart';
 import 'package:ecobee_wire_genie/screens/premium_screen.dart';
+import 'package:ecobee_wire_genie/screens/ecobee3_screen.dart';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,11 +21,8 @@ Future<void> main() async {
     ),
   );
 
-
   runApp(const WiringApp());
 }
-
-
 
 class WiringApp extends StatelessWidget {
   const WiringApp({super.key});
@@ -33,12 +32,19 @@ class WiringApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'WireGenie',
-      theme: ThemeData(primarySwatch: Colors.blue),
+      //theme: ThemeData(primarySwatch: Colors.blue),
+        darkTheme: ThemeData(
+          brightness: Brightness.dark,
+          primarySwatch: Colors.indigo,
+          scaffoldBackgroundColor: Colors.grey[900],
+          // Define other dark theme properties
+        ),
       home: const HomeScreen(),
       routes: {
         '/home': (context) => const HomeScreen(),
-        //'/about': (context) => const AboutScreen(),
+        '/about': (context) => const AboutScreen(),
         '/premium': (context) => const PremiumScreen(),
+        '/ecobee3': (context) => const Ecobee3Screen(),
        // '/enhanced': (context) => const EnhancedScreen(),
         '/feature_request': (context) => const FeatureRequestScreen(),
       },

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 import '../app_bar/app_navigation_bar.dart';
-import 'package:url_launcher/url_launcher.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -203,7 +202,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
 
-              // *** ADDED: Positioned Widget for App Version in Top Right Corner ***
               Positioned(
                 top: 8.0,
                 right: 32.0, // Match the padding of the SingleChildScrollView

@@ -80,8 +80,8 @@ class AppNavigationBar extends StatelessWidget implements PreferredSizeWidget {
           },
         ),
         _buildNavBarButton(
-          label: "Smart Security",
-          icon: Icons.security,
+          label: "AI",
+          icon: Icons.psychology,
           onTap: () {
             // Add navigation logic for Switch+ here
           },

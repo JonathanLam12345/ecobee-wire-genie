@@ -21,7 +21,7 @@ class ColorPickerDialog extends StatelessWidget {
     ];
 
     return AlertDialog(
-      title: const Text('Pick a color'),
+      title: const Text('Pick a wire color'),
       content: Wrap(
         spacing: 8,
         children: colors

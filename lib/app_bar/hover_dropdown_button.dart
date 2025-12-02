@@ -102,7 +102,10 @@ class _HoverDropdownButtonState extends State<HoverDropdownButton> {
       Navigator.pushNamed(context, '/premium');
     } else if (item == 'Enhanced') {
       Navigator.pushNamed(context, '/enhanced');
-    } else {
+    }
+    else if (item == 'ecobee3') {
+      Navigator.pushNamed(context, '/ecobee3');
+    }else {
       Navigator.pushReplacementNamed(context, '/home');
     }
   }
