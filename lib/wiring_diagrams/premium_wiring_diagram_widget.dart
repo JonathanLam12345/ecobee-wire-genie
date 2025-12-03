@@ -53,7 +53,7 @@ class _PremiumWiringDiagramWidgetState
     Wire(
       id: 'Y2',
       points: [Offset(83, 203), Offset(231, 204), Offset(231, 346)],
-      color: Colors.yellow,
+      color: Colors.transparent,
     ),
     Wire(
       id: 'W1',
@@ -63,7 +63,7 @@ class _PremiumWiringDiagramWidgetState
     Wire(
       id: 'W2',
       points: [Offset(332, 98), Offset(167, 98), Offset(167, 346)],
-      color: (Colors.grey[350])!,
+      color: (Colors.transparent)!,
     ),
     Wire(
       id: 'C',
@@ -601,7 +601,6 @@ class _PremiumWiringDiagramWidgetState
         final anchor = html.document.createElement('a') as html.AnchorElement;
         anchor.href = url;
 
-        // 3. Set the new filename using the sanitized title
         anchor.download = 'Premium_$title2.png';
 
         // Log analytics event

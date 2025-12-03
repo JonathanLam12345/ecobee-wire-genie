@@ -27,14 +27,14 @@ class WirePainter extends CustomPainter {
       }
 
 
-      final outlinePaint = Paint()
-        ..color = Colors.black
-        ..strokeWidth = 3 // Slightly thicker than the main wire (5 + 2 = 7)
-        ..style = PaintingStyle.stroke
-        ..strokeCap = StrokeCap.round;
-
-      // 3. Draw the black outline first
-      canvas.drawPath(path, outlinePaint);
+      // final outlinePaint = Paint()
+      //   ..color = Colors.black
+      //   ..strokeWidth = 0 // Slightly thicker than the main wire (5 + 2 = 7)
+      //   ..style = PaintingStyle.stroke
+      //   ..strokeCap = StrokeCap.round;
+      //
+      // // 3. Draw the black outline first
+      // canvas.drawPath(path, outlinePaint);
 
 
       // 4. Define the main wire paint (original logic)

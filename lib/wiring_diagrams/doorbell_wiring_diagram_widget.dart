@@ -32,384 +32,141 @@ class _PremiumWiringDiagramWidgetState
   final List<Wire> doorbell1 = [
     Wire(
       id: 'doorbell1',
-      points: [Offset(62, 159), Offset(88, 159)],
-      color: Colors.red,
+      points: [Offset(63, 159), Offset(85, 159)],
+      color: Colors.black,
     ),
     Wire(
-      id: 'G',
-      points: [Offset(83, 124), Offset(258, 124), Offset(258, 346)],
-      color: Colors.green,
+      id: 'doorbell2',
+      points: [Offset(63, 237), Offset(103, 237), Offset(103, 233)],
+      color: Colors.black,
     ),
     Wire(
-      id: 'Y1',
-      points: [Offset(83, 177), Offset(201, 178), Offset(200, 346)],
-      color: Colors.yellow,
-    ),
-    Wire(
-      id: 'Y2',
-      points: [Offset(83, 203), Offset(231, 204), Offset(231, 346)],
-      color: Colors.yellow,
-    ),
-    Wire(
-      id: 'W1',
-      points: [Offset(331, 71), Offset(137, 72), Offset(137, 346)],
-      color: (Colors.grey[350])!,
-    ),
-    Wire(
-      id: 'W2',
-      points: [Offset(332, 98), Offset(167, 98), Offset(167, 346)],
-      color: (Colors.grey[350])!,
-    ),
-    Wire(
-      id: 'C',
-      points: [
-        Offset(83, 151),
-        Offset(230, 151),
-        Offset(230, 184),
-        Offset(321, 184),
-        Offset(321, 346),
-      ],
-      color: Colors.blue,
-    ),
-
-    Wire(
-      id: 'AC Y1',
-      points: [
-        Offset(22, 346),
-        Offset(22, 294),
-        Offset(194, 294),
-        Offset(194, 346),
-      ],
-      color: Colors.red,
-    ),
-
-    Wire(
-      id: 'AC Y2',
-      points: [
-        Offset(52, 346),
-        Offset(52, 306),
-        Offset(224, 306),
-        Offset(224, 346),
-      ],
-      color: Colors.red,
-    ),
-    Wire(
-      id: 'AC C',
-      points: [
-        Offset(83, 346),
-        Offset(83, 322),
-        Offset(315, 322),
-        Offset(315, 346),
-      ],
-      color: (Colors.grey[350])!,
+      id: 'TRANS',
+      points: [Offset(123, 159), Offset(158, 160), Offset(158, 156)],
+      color: Colors.black,
     ),
   ];
 
-  // NEW DIAGRAM WIRES (Second Column, First Row)
-  final List<Wire> pek = [
+  final List<Wire> doorbell2 = [
     Wire(
-      id: 'Rc',
-      points: [Offset(311, 16), Offset(257, 16), Offset(257, 139)],
-      color: Colors.red,
+      id: 'doorbell1',
+      points: [Offset(197, 155), Offset(280, 155)],
+      color: Colors.black,
     ),
     Wire(
-      id: 'C',
-      points: [Offset(108, 66), Offset(236, 66), Offset(236, 139)],
-      color: Colors.orange,
-    ),
-    Wire(
-      id: 'PEK+',
-      points: [Offset(108, 128), Offset(217, 128), Offset(217, 139)],
-      color: Colors.yellow,
-    ),
-
-    Wire(
-      id: 'W1',
-      points: [Offset(312, 57), Offset(197, 57), Offset(199, 140)],
-      color: (Colors.grey[350])!,
-    ),
-    Wire(
-      id: 'Y2',
-      points: [
-        Offset(108, 107),
-        Offset(129, 107),
-        Offset(129, 296),
-        Offset(225, 296),
-        Offset(225, 361),
-      ],
-      color: Colors.yellow,
-    ),
-    Wire(
-      id: 'W2',
-      points: [
-        Offset(310, 78),
-        Offset(295, 78),
-        Offset(295, 263),
-        Offset(176, 263),
-        Offset(176, 361),
-      ],
-      color: (Colors.grey[350])!,
-    ),
-    Wire(
-      id: 'PEK Y',
-      points: [Offset(199, 245), Offset(199, 361)],
-      color: (Colors.grey[350])!,
-    ),
-    Wire(
-      id: 'PEK W',
-      points: [
-        Offset(213, 247),
-        Offset(215, 280),
-        Offset(152, 280),
-        Offset(152, 363),
-      ],
-      color: (Colors.grey[350])!,
-    ),
-    Wire(
-      id: 'PEK G',
-      points: [
-        Offset(229, 249),
-        Offset(228, 297),
-        Offset(245, 297),
-        Offset(245, 361),
-      ],
-
-      color: Colors.green,
-    ),
-    Wire(
-      id: 'PEK C',
-      points: [
-        Offset(243, 249),
-        Offset(243, 279),
-        Offset(296, 279),
-        Offset(296, 361),
-      ],
-      color: Colors.blue,
-    ),
-
-    Wire(
-      id: 'PEK R',
-      points: [
-        Offset(255, 249),
-        Offset(255, 296),
-        Offset(269, 296),
-        Offset(269, 361),
-      ],
-      color: Colors.red,
-    ),
-    Wire(
-      id: 'AC Y1',
-      points: [
-        Offset(61, 361),
-        Offset(61, 331),
-        Offset(192, 331),
-        Offset(192, 361),
-      ],
-
-      color: Colors.red,
-    ),
-    Wire(
-      id: 'AC Y2',
-      points: [
-        Offset(84, 361),
-        Offset(85, 313),
-        Offset(218, 313),
-        Offset(218, 361),
-      ],
-
-      color: Colors.red,
-    ),
-    Wire(
-      id: 'AC C',
-      points: [
-        Offset(108, 361),
-        Offset(108, 347),
-        Offset(289, 347),
-        Offset(289, 361),
-      ],
-
-      color: (Colors.grey[350])!,
+      id: 'doorbell2',
+      points: [Offset(197, 326), Offset(338, 326), Offset(338, 170)],
+      color: Colors.black,
     ),
   ];
 
   ////////////////////////////////////////////////////////////////////////////////////////
-  final List<Wire> heatPump = [
+  final List<Wire> doorbell3 = [
     Wire(
-      id: 'Rc',
-      points: [Offset(353, 31), Offset(321, 31), Offset(323, 326)],
-      color: Colors.red,
+      id: 'doorbell1',
+      points: [Offset(63, 151), Offset(86, 151)],
+      color: Colors.black,
     ),
     Wire(
-      id: 'G',
-      points: [Offset(61, 115), Offset(293, 113), Offset(296, 326)],
-      color: Colors.green,
+      id: 'doorbell2',
+      points: [Offset(62, 228), Offset(102, 228), Offset(102, 225)],
+      color: Colors.black,
     ),
     Wire(
-      id: 'Y1',
-      points: [Offset(63, 156), Offset(251, 156), Offset(251, 326)],
+      id: 'TRANS',
+      points: [Offset(123, 151), Offset(147, 151), Offset(148, 146)],
 
-      color: Colors.yellow,
-    ),
-    Wire(
-      id: 'Y2',
-      points: [Offset(63, 177), Offset(273, 179), Offset(273, 326)],
-
-      color: Colors.yellow,
-    ),
-    Wire(
-      id: 'W1',
-      points: [Offset(352, 73), Offset(203, 73), Offset(203, 328)],
-      color: (Colors.grey[350])!,
-    ),
-    Wire(
-      id: 'W2',
-      points: [Offset(352, 93), Offset(223, 92), Offset(223, 327)],
-      color: (Colors.grey[350])!,
-    ),
-    Wire(
-      id: 'O/B',
-      points: [Offset(61, 219), Offset(177, 219), Offset(179, 326)],
-      color: Colors.orange,
-    ),
-    Wire(
-      id: 'C',
-      points: [Offset(61, 136), Offset(348, 136), Offset(348, 326)],
-      color: Colors.blue,
+      color: Colors.black,
     ),
 
     Wire(
-      id: 'HP O/B',
-      points: [
-        Offset(16, 326),
-        Offset(16, 313),
-        Offset(173, 313),
-        Offset(173, 326),
-      ],
-      color: Colors.orange,
-    ),
-    Wire(
-      id: 'HP W2',
-      points: [
-        Offset(39, 326),
-        Offset(39, 296),
-        Offset(197, 296),
-        Offset(197, 326),
-      ],
-      color: Colors.grey,
-    ),
-    Wire(
-      id: 'HP Y1',
-      points: [
-        Offset(64, 326),
-        Offset(64, 280),
-        Offset(243, 280),
-        Offset(244, 326),
-      ],
-      color: Colors.yellow,
-    ),
-    Wire(
-      id: 'HP Y2',
-      points: [
-        Offset(88, 325),
-        Offset(87, 263),
-        Offset(268, 263),
-        Offset(269, 325),
-      ],
-      color: Colors.yellow,
-    ),
-    Wire(
-      id: 'HP R',
-      points: [
-        Offset(111, 326),
-        Offset(112, 247),
-        Offset(315, 247),
-        Offset(315, 326),
-      ],
-      color: Colors.red,
+      id: 'button-wiring1',
+      points: [Offset(51, 292), Offset(151, 292), Offset(151, 146)],
+
+      color: Colors.black,
     ),
 
     Wire(
-      id: 'HP C',
-      points: [
-        Offset(135, 326),
-        Offset(136, 231),
-        Offset(340, 229),
-        Offset(340, 326),
-      ],
-      color: Colors.blue,
+      id: 'button-wiring2',
+      points: [Offset(51, 322), Offset(103, 322), Offset(103, 319)],
+
+      color: Colors.black,
     ),
   ];
 
-  /////////////////////////////////////////DUAL////////////////////////////////////////////////////////////////////////////////////////////////////////
-  final List<Wire> dual = [
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  final List<Wire> doorbell4 = [
     Wire(
-      id: 'Rh',
-      points: [Offset(343, 72), Offset(315, 72), Offset(315, 336)],
+      id: 'doorbell1',
+      points: [Offset(57, 118), Offset(127, 119)],
+      color: Colors.black,
+    ),
+    Wire(
+      id: 'doorbell2',
+      points: [Offset(56, 186), Offset(154, 187), Offset(154, 184)],
+      color: Colors.black,
+    ),
+    Wire(
+      id: 'TRANS',
+      points: [Offset(158, 119), Offset(180, 119), Offset(180, 115)],
+      color: Colors.black,
+    ),
+    Wire(
+      id: 'doorbell1',
+      points: [Offset(116, 263), Offset(134, 262), Offset(134, 125)],
+      color: Colors.black,
+    ),
+    Wire(
+      id: 'doorbell2',
+      points: [Offset(117, 296), Offset(184, 297), Offset(181, 115)],
+      color: Colors.black,
+    ),
+  ];
 
-      color: Colors.red,
+  final List<Wire> doorbell5 = [
+    Wire(
+      id: 'doorbell1',
+      points: [Offset(96, 120), Offset(118, 120)],
+      color: Colors.black,
     ),
     Wire(
-      id: 'Rc',
-      points: [Offset(343, 49), Offset(155, 49), Offset(155, 229)],
+      id: 'doorbell2',
+      points: [Offset(97, 191), Offset(132, 191), Offset(132, 188)],
+      color: Colors.black,
+    ),
+    Wire(
+      id: 'TRANS',
+      points: [Offset(152, 120), Offset(178, 120), Offset(178, 117)],
+      color: Colors.black,
+    ),
+    Wire(
+      id: 'button1',
+      points: [Offset(83, 270), Offset(176, 268), Offset(175, 117)],
+      color: Colors.black,
+    ),
+    Wire(
+      id: 'button2',
+      points: [Offset(84, 300), Offset(131, 300), Offset(132, 295)],
 
-      color: Colors.red,
+      color: Colors.black,
     ),
-    Wire(
-      id: 'G',
-      points: [Offset(71, 73), Offset(209, 73), Offset(211, 228)],
 
-      color: Colors.green,
-    ),
     Wire(
-      id: 'Y1',
-      points: [Offset(72, 121), Offset(101, 121), Offset(101, 227)],
-      color: Colors.yellow,
-    ),
-    Wire(
-      id: 'Y2',
-      points: [Offset(72, 145), Offset(128, 144), Offset(129, 228)],
-      color: Colors.yellow,
-    ),
-    Wire(
-      id: 'W1',
-      points: [Offset(343, 97), Offset(259, 97), Offset(259, 336)],
+      id: 'button1',
+      points: [Offset(33, 232), Offset(175, 232), Offset(175, 117)],
 
-      color: (Colors.grey[350])!,
+      color: Colors.black,
     ),
     Wire(
-      id: 'W2',
-      points: [Offset(345, 121), Offset(287, 121), Offset(287, 336)],
-
-      color: (Colors.grey[350])!,
-    ),
-    Wire(
-      id: 'C',
-      points: [Offset(72, 97), Offset(183, 97), Offset(183, 228)],
-
-      color: Colors.blue,
-    ),
-    Wire(
-      id: 'AC Y1',
-      points: [Offset(100, 287), Offset(100, 336)],
-
-      color: Colors.red,
-    ),
-    Wire(
-      id: 'AC Y2',
-      points: [Offset(127, 285), Offset(127, 336)],
-
-      color: Colors.red,
-    ),
-    Wire(
-      id: 'AC C',
+      id: 'button2',
       points: [
-        Offset(183, 286),
-        Offset(183, 312),
-        Offset(156, 312),
-        Offset(156, 336),
+        Offset(33, 260),
+        Offset(46, 260),
+        Offset(46, 335),
+        Offset(134, 335),
+        Offset(134, 295),
       ],
-
-      color: (Colors.grey[350])!,
+      color: Colors.black,
     ),
   ];
 
@@ -420,15 +177,15 @@ class _PremiumWiringDiagramWidgetState
     if (widget.diagramIndex == 0) {
       wires = List.from(doorbell1);
     } else if (widget.diagramIndex == 1) {
-      wires = List.from(doorbell1);
+      wires = List.from(doorbell2);
     } else if (widget.diagramIndex == 2) {
-      wires = List.from(doorbell1);
+      wires = List.from(doorbell3);
     } else if (widget.diagramIndex == 3) {
-      wires = List.from(doorbell1);
+      wires = List.from(doorbell4);
     } else if (widget.diagramIndex == 4) {
-      wires = List.from(doorbell1);
+      wires = List.from(doorbell5);
     } else if (widget.diagramIndex == 5) {
-      wires = List.from(doorbell1);
+      wires = List.from(doorbell5);
     }
   }
 
@@ -437,15 +194,15 @@ class _PremiumWiringDiagramWidgetState
       if (widget.diagramIndex == 0) {
         wires = List.from(doorbell1);
       } else if (widget.diagramIndex == 1) {
-        wires = List.from(doorbell1);
+        wires = List.from(doorbell2);
       } else if (widget.diagramIndex == 2) {
-        wires = List.from(doorbell1);
+        wires = List.from(doorbell3);
       } else if (widget.diagramIndex == 3) {
-        wires = List.from(doorbell1);
+        wires = List.from(doorbell4);
       } else if (widget.diagramIndex == 4) {
-        wires = List.from(doorbell1);
+        wires = List.from(doorbell5);
       } else if (widget.diagramIndex == 5) {
-        wires = List.from(doorbell1);
+        wires = List.from(doorbell5);
       }
       showWireIds = false;
     });
@@ -593,7 +350,7 @@ class _PremiumWiringDiagramWidgetState
             ? 'Doorbell Camera-4'
             : widget.diagramIndex == 4
             ? 'Doorbell Camera-5'
-           : 'Doorbell Camera-6';
+            : 'Doorbell Camera-6';
 
         final title2 = title
             .replaceAll(RegExp(r'[^\w\s-]'), '') // Remove special characters
@@ -648,7 +405,7 @@ class _PremiumWiringDiagramWidgetState
         ? 'assets/2-doorbell-cameras-1-chime_1-transformer.png'
         : widget.diagramIndex == 4
         ? 'assets/1-doorbell-camera_2-or-more-doorbell-buttons_1-chime_1-transformer.png'
-       : 'assets/1-doorbell-camera_2-or-more-doorbell-buttons_1-chime_1-transformer.png';
+        : 'assets/1-doorbell-camera_2-or-more-doorbell-buttons_1-chime_1-transformer.png';
 
     final String title = widget.diagramIndex == 0
         ? "1 Doorbell Camera, 1 Chime Box"
@@ -660,7 +417,7 @@ class _PremiumWiringDiagramWidgetState
         ? '1 Doorbell Camera, 1 Doorbell Button, 1 Chime Box'
         : widget.diagramIndex == 4
         ? '1 Doorbell Camera, 2 Doorbell Button, 1 Chime Box'
-       : 'Dual Transformer Installation';
+        : 'Dual Transformer Installation';
 
     return Card(
       elevation: 3,
