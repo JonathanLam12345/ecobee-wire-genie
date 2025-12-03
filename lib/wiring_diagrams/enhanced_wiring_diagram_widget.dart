@@ -9,6 +9,8 @@ import 'package:flutter/rendering.dart';
 import '../paint_features/color_picker_dialog.dart';
 import '../paint_features/wire_painter.dart';
 
+import 'package:firebase_analytics/firebase_analytics.dart';
+
 class EnhancedWiringDiagramWidget extends StatefulWidget {
   final int diagramIndex;
 
@@ -21,6 +23,8 @@ class EnhancedWiringDiagramWidget extends StatefulWidget {
 
 class _PremiumWiringDiagramWidgetState
     extends State<EnhancedWiringDiagramWidget> {
+  // Firebase Analytics instance
+  final FirebaseAnalytics analytics = FirebaseAnalytics.instance;
   // RepaintBoundary key for capturing the image + wires
   final GlobalKey _captureKey = GlobalKey();
 
@@ -269,7 +273,13 @@ class _PremiumWiringDiagramWidgetState
 
     Wire(
       id: 'C',
-      points: [Offset(61, 135), Offset(277, 135), Offset(278, 157), Offset(351, 161), Offset(353, 288)],
+      points: [
+        Offset(61, 135),
+        Offset(277, 135),
+        Offset(278, 157),
+        Offset(351, 161),
+        Offset(353, 288),
+      ],
       color: Colors.blue,
     ),
 
@@ -335,16 +345,14 @@ class _PremiumWiringDiagramWidgetState
       color: Colors.blue,
     ),
   ];
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   final List<Wire> heatOnly = [
-
     Wire(
       id: 'Rc',
       points: [Offset(307, 101), Offset(210, 103), Offset(210, 232)],
 
       color: Colors.red,
     ),
-
 
     Wire(
       id: 'W1',
@@ -359,7 +367,6 @@ class _PremiumWiringDiagramWidgetState
 
       color: Colors.blue,
     ),
-
   ];
 
   @override
@@ -502,8 +509,8 @@ class _PremiumWiringDiagramWidgetState
   Future<void> _saveCapture() async {
     try {
       final boundary =
-      _captureKey.currentContext?.findRenderObject()
-      as RenderRepaintBoundary?;
+          _captureKey.currentContext?.findRenderObject()
+              as RenderRepaintBoundary?;
       if (boundary == null) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Capture area not available')),
@@ -545,9 +552,16 @@ class _PremiumWiringDiagramWidgetState
         anchor.href = url;
 
         // 3. Set the new filename using the sanitized title
-        anchor.download =
-        'Enhanced_$title2.png';
+        anchor.download = 'Enhanced_$title2.png';
 
+        // Log analytics event
+        await analytics.logEvent(
+          name: 'enhanced_image_download',
+          parameters: {
+            'diagram_title': title2,
+            'diagram_index': widget.diagramIndex,
+          },
+        );
 
         html.document.body!.append(anchor);
         anchor.click();

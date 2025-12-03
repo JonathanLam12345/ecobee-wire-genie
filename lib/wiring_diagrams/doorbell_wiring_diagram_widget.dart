@@ -9,6 +9,8 @@ import 'package:flutter/rendering.dart';
 import '../paint_features/color_picker_dialog.dart';
 import '../paint_features/wire_painter.dart';
 
+import 'package:firebase_analytics/firebase_analytics.dart';
+
 class DoorbellWiringDiagramWidget extends StatefulWidget {
   final int diagramIndex;
 
@@ -21,6 +23,8 @@ class DoorbellWiringDiagramWidget extends StatefulWidget {
 
 class _PremiumWiringDiagramWidgetState
     extends State<DoorbellWiringDiagramWidget> {
+  // Firebase Analytics instance
+  final FirebaseAnalytics analytics = FirebaseAnalytics.instance;
   // RepaintBoundary key for capturing the image + wires
   final GlobalKey _captureKey = GlobalKey();
 
@@ -363,6 +367,15 @@ class _PremiumWiringDiagramWidgetState
 
         // 3. Set the new filename using the sanitized title
         anchor.download = 'Premium_$title2.png';
+
+        // Log analytics event
+        await analytics.logEvent(
+          name: 'doorbell_image_download',
+          parameters: {
+            'diagram_title': title2,
+            'diagram_index': widget.diagramIndex,
+          },
+        );
 
         html.document.body!.append(anchor);
         anchor.click();

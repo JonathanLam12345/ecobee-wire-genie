@@ -23,8 +23,8 @@ class PremiumWiringDiagramWidget extends StatefulWidget {
 
 class _PremiumWiringDiagramWidgetState
     extends State<PremiumWiringDiagramWidget> {
-      // Firebase Analytics instance
-      final FirebaseAnalytics analytics = FirebaseAnalytics.instance;
+  // Firebase Analytics instance
+  final FirebaseAnalytics analytics = FirebaseAnalytics.instance;
   // RepaintBoundary key for capturing the image + wires
   final GlobalKey _captureKey = GlobalKey();
 
@@ -609,9 +609,8 @@ class _PremiumWiringDiagramWidgetState
           parameters: {
             'diagram_title': title2,
             'diagram_index': widget.diagramIndex,
-            'timestamp': DateTime.now().millisecondsSinceEpoch,
-  },
-);
+          },
+        );
 
         html.document.body!.append(anchor);
         anchor.click();

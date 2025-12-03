@@ -10,6 +10,8 @@ import '../main.dart';
 import '../paint_features/color_picker_dialog.dart';
 import '../paint_features/wire_painter.dart';
 
+import 'package:firebase_analytics/firebase_analytics.dart';
+
 class Ecobee3WiringDiagramWidget extends StatefulWidget {
   final int diagramIndex;
 
@@ -22,6 +24,8 @@ class Ecobee3WiringDiagramWidget extends StatefulWidget {
 
 class _Ecobee3WiringDiagramWidgetState
     extends State<Ecobee3WiringDiagramWidget> {
+  // Firebase Analytics instance
+  final FirebaseAnalytics analytics = FirebaseAnalytics.instance;
   final GlobalKey _captureKey = GlobalKey();
 
   Map<int, Rect> wireIdHitboxes = {};
@@ -130,10 +134,15 @@ class _Ecobee3WiringDiagramWidgetState
     ),
     Wire(
       id: 'AC C',
-      points: [Offset(183, 229), Offset(183, 238),Offset(167, 238), Offset(167, 247)],
+      points: [
+        Offset(183, 229),
+        Offset(183, 238),
+        Offset(167, 238),
+        Offset(167, 247),
+      ],
 
       color: (Colors.grey[350])!,
-    )
+    ),
   ];
 
   final List<Wire> heatPumpPEK = [
@@ -214,14 +223,12 @@ class _Ecobee3WiringDiagramWidgetState
       points: [Offset(179, 229), Offset(311, 231), Offset(312, 260)],
       color: Colors.red,
     ),
-
-
   ];
 
   final List<Wire> accessory = [
     Wire(
       id: '24V to ACC+',
-      points:  [Offset(196, 199), Offset(323, 199)],
+      points: [Offset(196, 199), Offset(323, 199)],
       color: Colors.red,
     ),
 
@@ -232,18 +239,16 @@ class _Ecobee3WiringDiagramWidgetState
     ),
     Wire(
       id: '24V to ACC+',
-      points:  [Offset(194, 262), Offset(324, 262)]
-      ,
+      points: [Offset(194, 262), Offset(324, 262)],
       color: Colors.red,
     ),
 
     Wire(
       id: 'C to ACC-',
-      points:  [Offset(196, 279), Offset(255, 281), Offset(257, 297)],
+      points: [Offset(196, 279), Offset(255, 281), Offset(257, 297)],
       color: Colors.blue,
     ),
   ];
-
 
   @override
   void initState() {
@@ -296,24 +301,23 @@ class _Ecobee3WiringDiagramWidgetState
 
     final newId = await showDialog<String>(
       context: context,
-      builder: (_) =>
-          AlertDialog(
-            title: const Text('Rename Wire ID'),
-            content: TextField(
-              controller: controller,
-              decoration: const InputDecoration(labelText: 'Wire ID'),
-            ),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.pop(context),
-                child: const Text('Cancel'),
-              ),
-              TextButton(
-                onPressed: () => Navigator.pop(context, controller.text.trim()),
-                child: const Text('Save'),
-              ),
-            ],
+      builder: (_) => AlertDialog(
+        title: const Text('Rename Wire ID'),
+        content: TextField(
+          controller: controller,
+          decoration: const InputDecoration(labelText: 'Wire ID'),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('Cancel'),
           ),
+          TextButton(
+            onPressed: () => Navigator.pop(context, controller.text.trim()),
+            child: const Text('Save'),
+          ),
+        ],
+      ),
     );
 
     if (newId != null && newId.isNotEmpty) {
@@ -347,8 +351,7 @@ class _Ecobee3WiringDiagramWidgetState
   }
 
   bool _isPointNearLine(Offset p, Offset a, Offset b, {double tolerance = 10}) {
-    final dx = b.dx - a.dx,
-        dy = b.dy - a.dy;
+    final dx = b.dx - a.dx, dy = b.dy - a.dy;
     final lengthSquared = dx * dx + dy * dy;
 
     if (lengthSquared == 0) return (p - a).distance <= tolerance;
@@ -388,8 +391,8 @@ class _Ecobee3WiringDiagramWidgetState
   Future<void> _saveCapture() async {
     try {
       final boundary =
-      _captureKey.currentContext?.findRenderObject()
-      as RenderRepaintBoundary?;
+          _captureKey.currentContext?.findRenderObject()
+              as RenderRepaintBoundary?;
       if (boundary == null) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Capture area not available')),
@@ -418,9 +421,17 @@ class _Ecobee3WiringDiagramWidgetState
         final anchor = html.document.createElement('a') as html.AnchorElement;
         anchor.href = url;
         anchor.download =
-        'diagram_${widget.diagramIndex}_${DateTime
-            .now()
-            .millisecondsSinceEpoch}.png';
+            'diagram_${widget.diagramIndex}_${DateTime.now().millisecondsSinceEpoch}.png';
+
+        // Log analytics event
+        await analytics.logEvent(
+          name: 'ecobee3_image_download',
+          parameters: {
+            'diagram_title': widget.diagramIndex,
+            'diagram_index': widget.diagramIndex,
+          },
+        );
+
         html.document.body!.append(anchor);
         anchor.click();
         anchor.remove();
@@ -428,21 +439,19 @@ class _Ecobee3WiringDiagramWidgetState
       } else {
         showDialog(
           context: context,
-          builder: (_) =>
-              AlertDialog(
-                title: const Text('Captured image'),
-                content: ConstrainedBox(
-                  constraints: const BoxConstraints(
-                      maxHeight: 400, maxWidth: 300),
-                  child: Image.memory(pngBytes),
-                ),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(context),
-                    child: const Text('Close'),
-                  ),
-                ],
+          builder: (_) => AlertDialog(
+            title: const Text('Captured image'),
+            content: ConstrainedBox(
+              constraints: const BoxConstraints(maxHeight: 400, maxWidth: 300),
+              child: Image.memory(pngBytes),
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: const Text('Close'),
               ),
+            ],
+          ),
         );
       }
     } catch (e) {
@@ -452,8 +461,7 @@ class _Ecobee3WiringDiagramWidgetState
 
   @override
   Widget build(BuildContext context) {
-    const double imageWidth = 420,
-        imageHeight = 420;
+    const double imageWidth = 420, imageHeight = 420;
 
     final String imagePath = widget.diagramIndex == 0
         ? 'assets/ecobee3_Wiring_Conventional-1.png'
