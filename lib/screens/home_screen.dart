@@ -87,6 +87,9 @@ class _HomeScreenState extends State<HomeScreen> {
           style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 16),
+        _buildInstructionStep(Icons.gesture, "title", "description"),
+        _buildInstructionStep(Icons.gesture, "title", "description"),
+        _buildInstructionStep(Icons.gesture, "title", "description")
 
 
       ],
@@ -103,11 +106,13 @@ class _HomeScreenState extends State<HomeScreen> {
           style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 16),
-        // _buildWhatsNewItem(
-        //   'V1.0.0',
-        //   'Nov 27 2025',
-        //   'Added the **Premium Thermostat** wiring diagrams (accessible via the dropdown). Implemented a **new Hover Dropdown menu** for better web navigation. Fixed a bug where clicking outside the dropdown didn\'t dismiss it.',
-        // ),
+
+         // Add latest version info at the top here.
+
+         _buildWhatsNewItem(
+           'V1.0.0',
+           'December 3, 2025',
+           'Initial Release'),
 
       ],
     );
