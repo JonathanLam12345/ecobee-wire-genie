@@ -29,7 +29,7 @@ class WirePainter extends CustomPainter {
 
       final outlinePaint = Paint()
         ..color = Colors.black
-        ..strokeWidth = 1 // Slightly thicker than the main wire (5 + 2 = 7)
+        ..strokeWidth = 3 // Slightly thicker than the main wire (5 + 2 = 7)
         ..style = PaintingStyle.stroke
         ..strokeCap = StrokeCap.round;
 
@@ -56,7 +56,7 @@ class WirePainter extends CustomPainter {
             text: wire.id,
             style: const TextStyle(
               color: Colors.white,
-              fontSize: 14,
+              fontSize: 10,
               fontWeight: FontWeight.bold,
               shadows: [Shadow(color: Colors.black45, blurRadius: 3)],
             ),

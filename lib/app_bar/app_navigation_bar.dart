@@ -33,12 +33,15 @@ class AppNavigationBar extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
-  // Required by PreferredSizeWidget
+
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 
   @override
   Widget build(BuildContext context) {
+    // Get the current route name to prevent redundant navigation
+    final currentRoute = ModalRoute.of(context)?.settings.name;
+
     return AppBar(
       title: const Text(
         "",
@@ -49,16 +52,18 @@ class AppNavigationBar extends StatelessWidget implements PreferredSizeWidget {
       // Control back button display
       automaticallyImplyLeading: showBackButton,
       actions: [
-        // *** START MODIFICATION: ADDED HOME BUTTON ***
+        // Home Menu
         _buildNavBarButton(
           label: "Home Menu",
           icon: Icons.home,
           onTap: () {
-            // Navigate back to the instructional home screen
-            Navigator.pushReplacementNamed(context, '/home');
+            if (currentRoute != '/home') {
+              // Navigate back to the instructional home screen and clear the stack
+              // We use pushReplacementNamed here to ensure the navigation stack is shallow.
+              Navigator.pushReplacementNamed(context, '/home');
+            }
           },
         ),
-        // *** END MODIFICATION ***
         HoverDropdownButton(
           label: "Thermostat",
           icon: Icons.thermostat,
@@ -66,9 +71,8 @@ class AppNavigationBar extends StatelessWidget implements PreferredSizeWidget {
             'Premium',
             'Enhanced',
             'Essential',
-            'SmartThermostat with Voice Control',
+            'ecobee4/5',
             'ecobee3 lite',
-            'ecobee4',
             'ecobee3'
           ],
         ),
@@ -91,18 +95,21 @@ class AppNavigationBar extends StatelessWidget implements PreferredSizeWidget {
           icon: Icons.info,
           onTap: onAboutTap ??
                   () {
-                // Default: Navigate to the About screen
-                Navigator.pushNamed(context, '/about');
+                if (currentRoute != '/about') {
+
+                  Navigator.pushNamed(context, '/about');
+                }
               },
         ),
         _buildNavBarButton(
           label: "Feature Requests",
           icon: Icons.featured_play_list,
-          onTap: onAboutTap ??
-                  () {
-                // *** MODIFICATION: Navigate to the new FeatureRequestScreen ***
-                Navigator.pushNamed(context, '/feature_request');
-              },
+          onTap: () {
+            if (currentRoute != '/feature_request') {
+
+              Navigator.pushNamed(context, '/feature_request');
+            }
+          },
         ),
         const SizedBox(width: 80), // Add some spacing at the end
       ],

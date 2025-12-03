@@ -22,21 +22,21 @@ class AboutScreen extends StatefulWidget {
 }
 
 class _AboutScreenState extends State<AboutScreen> {
- final List<TeamMember> teamMembers = const [
+  final List<TeamMember> teamMembers = const [
     TeamMember(
       name: 'Jonathan Lam',
       role: 'Main Lead Developer',
-      imagePath: 'assets/jonathan.png', // Replace with your actual path
+      imagePath: 'assets/jonathan.jpg',
     ),
     TeamMember(
       name: 'Shoeib MohamadiRad',
       role: 'Backend Developer',
-      imagePath: 'assets/shoeib.png', // Replace with your actual path
+      imagePath: 'assets/shoeib.jpeg',
     ),
     TeamMember(
       name: 'Ambuj Chawla',
       role: 'Hacker',
-      imagePath: 'assets/ambuj.png', // Replace with your actual path
+      imagePath: 'assets/ambuj.png',
     ),
   ];
 
@@ -46,17 +46,17 @@ class _AboutScreenState extends State<AboutScreen> {
   }
 
   Widget _buildTeamMemberItem(TeamMember member) {
-    // Define the size for the image and circular clip
+
     const double imageSize = 100.0;
 
     return Padding(
-      // Add horizontal padding to separate members
+
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          // Image Section
+
           SizedBox(
             width: imageSize,
             height: imageSize,
@@ -65,7 +65,7 @@ class _AboutScreenState extends State<AboutScreen> {
                 member.imagePath,
                 fit: BoxFit.cover,
                 errorBuilder: (context, error, stackTrace) {
-                  // Fallback widget if the image fails to load
+
                   return Container(
                     color: Colors.grey.shade300,
                     child: const Icon(Icons.person, size: imageSize * 0.6, color: Colors.grey),
@@ -87,7 +87,7 @@ class _AboutScreenState extends State<AboutScreen> {
             ),
           ),
 
-          // Role Section (Italics)
+
           SelectableText(
             member.role,
             textAlign: TextAlign.center,
@@ -109,8 +109,8 @@ class _AboutScreenState extends State<AboutScreen> {
       backgroundColor: const Color(0xFFf9fafc),
       appBar: const AppNavigationBar(showBackButton: false),
       body: SingleChildScrollView(
-        child: Align(
-          alignment: Alignment.topLeft,
+        // Center the content on the screen
+        child: Center(
           child: Padding(
             padding: const EdgeInsets.all(24.0),
             child: ConstrainedBox(
@@ -137,14 +137,14 @@ class _AboutScreenState extends State<AboutScreen> {
                     ),
                   ),
                   const Text(
-                    "• For this year’s hackathon, our team would like to develop a web app that is beneficial to the Tech Support team. \n• When assisting customers, the wire colors in their setup often do not match the colors shown in the wiring schematics provided in support articles. Some agents may manually edit wiring images by coloring over the wires before sending them to customers. While this helps improve clarity, the images often appear unprofessional. \n• This web app will allow agents to easily update and adjust wire colors within the schematics image, ensuring customers receive clear and polished visuals that improve their understanding of the installation process.",
+                    "• For this year’s Hack the Hive Season 14, our team would like to develop a web app that is beneficial to the Tech Support team. \n• When assisting customers, the wire colors in their setup often do not match the colors shown in the wiring schematics provided in support articles. Some agents may manually edit wiring images by coloring over the wires before sending them to customers. While this helps improve clarity, the images often appear unprofessional. \n• This web app will allow agents to easily update and adjust wire colors within the schematics image, ensuring customers receive clear and polished visuals that improve their understanding of the installation process.",
                     style: TextStyle(fontSize: 16, height: 1.5),
                     textAlign: TextAlign.left,
                   ),
                   const SizedBox(height: 30),
 
                   const Text(
-                    'Development Team (Hack the Hive December 2025)',
+                    'Development Team',
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w700,
@@ -152,13 +152,19 @@ class _AboutScreenState extends State<AboutScreen> {
                     ),
                     textAlign: TextAlign.left,
                   ),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 15.0),
+                    child: Divider(
+                      height: 1,
+                      thickness: 1,
+                      color: Color(0xFFdddddd),
+                    ),
+                  ),
                   const SizedBox(height: 12),
 
-                  // Use a Wrap or Row for displaying members
-                  // Wrap is better for web to handle different screen widths
                   Wrap(
-                    spacing: 24.0, // horizontal space between items
-                    runSpacing: 16.0, // vertical space between lines of items
+                    spacing: 24.0,
+                    runSpacing: 16.0,
                     children: teamMembers.map(_buildTeamMemberItem).toList(),
                   ),
                 ],

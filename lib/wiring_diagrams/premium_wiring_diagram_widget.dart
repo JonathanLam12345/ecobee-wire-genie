@@ -576,7 +576,7 @@ class _PremiumWiringDiagramWidgetState
       final Uint8List pngBytes = byteData.buffer.asUint8List();
 
       if (kIsWeb) {
-            final title = widget.diagramIndex == 0
+        final title = widget.diagramIndex == 0
             ? "Conventional Installation"
             : widget.diagramIndex == 1
             ? 'PEK Installation'
@@ -584,7 +584,7 @@ class _PremiumWiringDiagramWidgetState
             ? 'Heat Pump Installation'
             : 'Dual Transformer Installation';
 
-            final title2 = title
+        final title2 = title
             .replaceAll(RegExp(r'[^\w\s-]'), '') // Remove special characters
             .replaceAll(' ', '_'); // Replace spaces with underscores
 

@@ -88,7 +88,14 @@ class _FeatureRequestPageState extends State<FeatureRequestPage> {
                       color: Color(0xFF172538),
                     ),
                   ),
-                  const SizedBox(height: 16),
+                   const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 15.0),
+                    child: Divider(
+                      height: 1,
+                      thickness: 1,
+                      color: Color(0xFFdddddd),
+                    ),
+                  ),
                   const Text(
                     "Let us know what you would like to add to this web app. This could be a new wiring diagram, an additional tool, or an improvement to existing functionality.",
                     style: TextStyle(fontSize: 16, color: Colors.black87),
