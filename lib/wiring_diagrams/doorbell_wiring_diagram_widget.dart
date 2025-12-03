@@ -118,7 +118,7 @@ class _PremiumWiringDiagramWidgetState
     ),
     Wire(
       id: 'doorbell2',
-      points: [Offset(117, 296), Offset(184, 297), Offset(181, 115)],
+      points: [Offset(117, 296), Offset(184, 296), Offset(181, 115)],
       color: Colors.black,
     ),
   ];
