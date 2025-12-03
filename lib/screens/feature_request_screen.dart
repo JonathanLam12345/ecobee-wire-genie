@@ -24,17 +24,22 @@ class _FeatureRequestPageState extends State<FeatureRequestPage> {
 
     try {
       final user = FirebaseAuth.instance.currentUser;
-      final dbRef = FirebaseDatabase.instance.ref();
-      final newReqRef = dbRef.child('feature_requests').push();
+      final dbRef = FirebaseDatabase.instance.ref('feature_requests');
+      final pushRef = dbRef.push(); // generates a unique ID
+      final pushKey = pushRef.key; // e.g. -OfWNKVipeOrQ3DRsyZ1
+
+      final timestamp = DateTime.now().millisecondsSinceEpoch;
+      final keyWithTimestamp = '${timestamp}_$pushKey';
+
+      final newReqRef = dbRef.child(keyWithTimestamp);
 
       await newReqRef.set({
         'title': _titleController.text.trim(),
         'description': _descriptionController.text.trim(),
         'category': _category,
-        'userId': user?.uid,
         'status': 'open',
         'createdAt': ServerValue.timestamp,
-      });
+});
 
       // Reset form
       _titleController.clear();
