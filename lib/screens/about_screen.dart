@@ -35,7 +35,7 @@ class _AboutScreenState extends State<AboutScreen> {
     ),
     TeamMember(
       name: 'Ambuj Chawla',
-      role: 'Project Tester',
+      role: 'Graphics Designer',
       imagePath: 'assets/ambuj.png',
     ),
   ];

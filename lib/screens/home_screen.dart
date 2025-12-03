@@ -157,14 +157,30 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          // Large welcome text only appears once at the top
-                          const SelectableText(
-                            'Welcome to the WireGenie!',
-                            style: TextStyle(
-                              fontSize: 32,
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xFF172538),
-                            ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Image.asset(
+                                'assets/logo.png',
+                                width: 140,
+                                fit: BoxFit.contain,
+                              ),
+                              const SizedBox(width: 16),
+                              const Expanded(
+                                child: Center(
+                                  child: SelectableText(
+                                    'Welcome to the WireGenie!',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      fontSize: 32,
+                                      fontWeight: FontWeight.bold,
+                                      color: Color(0xFF172538),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                           const SizedBox(height: 24),
                           const Divider(),
