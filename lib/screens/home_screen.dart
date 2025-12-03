@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 import '../app_bar/app_navigation_bar.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -26,7 +27,10 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildInstructionStep(
-      IconData icon, String title, String description) {
+    IconData icon,
+    String title,
+    String description,
+  ) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 12.0),
       child: Row(
@@ -41,10 +45,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 SelectableText(
                   title,
                   style: const TextStyle(
-                      fontSize: 18, fontWeight: FontWeight.bold),
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 const SizedBox(height: 4),
-                SelectableText(description, style: const TextStyle(fontSize: 16)),
+                SelectableText(
+                  description,
+                  style: const TextStyle(fontSize: 16),
+                ),
               ],
             ),
           ),
@@ -62,40 +71,49 @@ class _HomeScreenState extends State<HomeScreen> {
           SelectableText(
             '$version ($date)',
             style: const TextStyle(
-                fontSize: 16, fontWeight: FontWeight.bold, color: Colors.green),
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              color: Colors.green,
+            ),
           ),
-          SelectableText(
-            changes,
-            style: const TextStyle(fontSize: 16),
-          ),
-
-
+          SelectableText(changes, style: const TextStyle(fontSize: 16)),
         ],
       ),
     );
   }
 
-
-
-  // Widget for the left column content: How to Use the Diagram Editor
   Widget _buildHowToUseSection() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SelectableText(
-          'How to Use the Diagram Editor',
+          'How to Use WireGenie',
           style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 16),
-        _buildInstructionStep(Icons.gesture, "title", "description"),
-        _buildInstructionStep(Icons.gesture, "title", "description"),
-        _buildInstructionStep(Icons.gesture, "title", "description")
-
-
+        _buildInstructionStep(
+          Icons.gesture,
+          "Select a Diagram:",
+          "Use the top navigation bar to choose a specific thermostat model (e.g., 'Premium') and view its associated wiring diagrams.",
+        ),
+        _buildInstructionStep(
+          Icons.color_lens,
+          "Change Wire Color:",
+          "Click directly on any wire in the schematic to open a color picker and change its color to match Smart Owner's setup.",
+        ),
+        _buildInstructionStep(
+          Icons.edit,
+          "Rename Wire ID:",
+          "Toggle \"Show Wire IDs\" button on, then click on the grey wire ID label (e.g., Rc, Y1) to rename it. This helps match the labels for Smart Owner's setup.",
+        ),
+        _buildInstructionStep(
+          Icons.save,
+          "Save Your Custom Diagram:",
+          "Click the \"Save Image\" button to download a PNG image of the schematic, including your custom wire colors and labels, and then send it off to the Smart Owner.",
+        ),
       ],
     );
   }
-
 
   Widget _buildWhatsNewSection() {
     return Column(
@@ -107,17 +125,11 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         const SizedBox(height: 16),
 
-         // Add latest version info at the top here.
-
-         _buildWhatsNewItem(
-           'V1.0.0',
-           'December 3, 2025',
-           'Initial Release'),
-
+        // Add latest version info at the top here, and not at the bottom.
+        _buildWhatsNewItem('V1.0.0', 'December 3, 2025', 'Initial Release'),
       ],
     );
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -131,7 +143,6 @@ class _HomeScreenState extends State<HomeScreen> {
           backgroundColor: const Color(0xFFf9fafc),
           // *** USING REUSABLE APP BAR ***
           appBar: const AppNavigationBar(showBackButton: false),
-
 
           body: Stack(
             children: [
@@ -150,9 +161,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           const SelectableText(
                             'Welcome to the WireGenie!',
                             style: TextStyle(
-                                fontSize: 32,
-                                fontWeight: FontWeight.bold,
-                                color: Color(0xFF172538)),
+                              fontSize: 32,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF172538),
+                            ),
                           ),
                           const SizedBox(height: 24),
                           const Divider(),
@@ -161,45 +173,50 @@ class _HomeScreenState extends State<HomeScreen> {
                           // Row/Column switch for two-column effect
                           isWide
                               ? Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              // Left Column: How to Use
-                              Expanded(
-                                flex: 5,
-                                child: Padding(
-                                  padding: const EdgeInsets.only(right: 48.0),
-                                  child: _buildHowToUseSection(),
-                                ),
-                              ),
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    // Left Column: How to Use
+                                    Expanded(
+                                      flex: 5,
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(
+                                          right: 48.0,
+                                        ),
+                                        child: _buildHowToUseSection(),
+                                      ),
+                                    ),
 
-                              // Vertical Divider
-                              const SizedBox(
-                                height: 450,
-                                child: VerticalDivider(
-                                    width: 1,
-                                    thickness: 1,
-                                    color: Colors.black12),
-                              ),
+                                    // Vertical Divider
+                                    const SizedBox(
+                                      height: 450,
+                                      child: VerticalDivider(
+                                        width: 1,
+                                        thickness: 1,
+                                        color: Colors.black12,
+                                      ),
+                                    ),
 
-                              // Right Column: What's New
-                              Expanded(
-                                flex: 5,
-                                child: Padding(
-                                  padding: const EdgeInsets.only(left: 48.0),
-                                  child: _buildWhatsNewSection(),
-                                ),
-                              ),
-                            ],
-                          )
+                                    // Right Column: What's New
+                                    Expanded(
+                                      flex: 5,
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(
+                                          left: 48.0,
+                                        ),
+                                        child: _buildWhatsNewSection(),
+                                      ),
+                                    ),
+                                  ],
+                                )
                               : Column(
-                            // Fallback single-column for narrow screens
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              _buildHowToUseSection(),
-                              const Divider(height: 48, thickness: 1),
-                              _buildWhatsNewSection(),
-                            ],
-                          ),
+                                  // Fallback single-column for narrow screens
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    _buildHowToUseSection(),
+                                    const Divider(height: 48, thickness: 1),
+                                    _buildWhatsNewSection(),
+                                  ],
+                                ),
                         ],
                       ),
                     ),
@@ -212,10 +229,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 right: 32.0, // Match the padding of the SingleChildScrollView
                 child: SelectableText(
                   _version,
-                  style: const TextStyle(
-                    fontSize: 14,
-                    color: Colors.grey,
-                  ),
+                  style: const TextStyle(fontSize: 14, color: Colors.grey),
                 ),
               ),
               // *** END ADDITION ***

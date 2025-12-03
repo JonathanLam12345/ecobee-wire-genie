@@ -80,7 +80,8 @@ class AppNavigationBar extends StatelessWidget implements PreferredSizeWidget {
           label: "Doorbell Camera",
           icon: Icons.doorbell,
           onTap: () {
-            // Add navigation logic for Doorbell Camera here
+
+            Navigator.pushNamed(context, '/doorbell');
           },
         ),
         _buildNavBarButton(
@@ -96,7 +97,6 @@ class AppNavigationBar extends StatelessWidget implements PreferredSizeWidget {
           onTap: onAboutTap ??
                   () {
                 if (currentRoute != '/about') {
-
                   Navigator.pushNamed(context, '/about');
                 }
               },

@@ -25,7 +25,7 @@ class _AboutScreenState extends State<AboutScreen> {
   final List<TeamMember> teamMembers = const [
     TeamMember(
       name: 'Jonathan Lam',
-      role: 'Main Lead Developer',
+      role: 'Lead Developer',
       imagePath: 'assets/jonathan.jpg',
     ),
     TeamMember(
@@ -35,7 +35,7 @@ class _AboutScreenState extends State<AboutScreen> {
     ),
     TeamMember(
       name: 'Ambuj Chawla',
-      role: 'Hacker',
+      role: 'Project Tester',
       imagePath: 'assets/ambuj.png',
     ),
   ];
@@ -137,7 +137,7 @@ class _AboutScreenState extends State<AboutScreen> {
                     ),
                   ),
                   const Text(
-                    "• For this year’s Hack the Hive Season 14, our team would like to develop a web app that is beneficial to the Tech Support team. \n• When assisting customers, the wire colors in their setup often do not match the colors shown in the wiring schematics provided in support articles. Some agents may manually edit wiring images by coloring over the wires before sending them to customers. While this helps improve clarity, the images often appear unprofessional. \n• This web app will allow agents to easily update and adjust wire colors within the schematics image, ensuring customers receive clear and polished visuals that improve their understanding of the installation process.",
+                    "• For Hack the Hive Season 14, our team would like to develop a web app that is beneficial to the Tech Support team. \n• When assisting customers, the wire colors in their setup often do not match the colors shown in the wiring schematics provided in support articles. Some agents may manually edit wiring images by coloring over the wires before sending them to customers. While this helps improve clarity, the images often appear unprofessional. \n• This web app will allow agents to easily update and adjust wire colors within the schematics image, ensuring customers receive clear and polished visuals that improve their understanding of the installation process.",
                     style: TextStyle(fontSize: 16, height: 1.5),
                     textAlign: TextAlign.left,
                   ),

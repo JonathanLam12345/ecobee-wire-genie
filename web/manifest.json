@@ -1,11 +1,11 @@
 {
-    "name": "ecobee_wiring_diagram",
+    "name": "ecobee WireGenie",
     "short_name": "ecobee_wiring_diagram",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Your Wiring Assistant",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
