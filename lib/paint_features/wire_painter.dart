@@ -19,18 +19,34 @@ class WirePainter extends CustomPainter {
     for (int index = 0; index < wires.length; index++) {
       final wire = wires[index];
 
-      final paint = Paint()
-        ..color = wire.color
-        ..strokeWidth = 5
-        ..style = PaintingStyle.stroke
-        ..strokeCap = StrokeCap.round;
-
+      // 1. Create the Path
       final path = Path()
         ..moveTo(wire.points.first.dx, wire.points.first.dy);
       for (int i = 1; i < wire.points.length; i++) {
         path.lineTo(wire.points[i].dx, wire.points[i].dy);
       }
-      canvas.drawPath(path, paint);
+
+
+      final outlinePaint = Paint()
+        ..color = Colors.black
+        ..strokeWidth = 1 // Slightly thicker than the main wire (5 + 2 = 7)
+        ..style = PaintingStyle.stroke
+        ..strokeCap = StrokeCap.round;
+
+      // 3. Draw the black outline first
+      canvas.drawPath(path, outlinePaint);
+
+
+      // 4. Define the main wire paint (original logic)
+      final mainWirePaint = Paint()
+        ..color = wire.color
+        ..strokeWidth = 4
+        ..style = PaintingStyle.stroke
+        ..strokeCap = StrokeCap.round;
+
+      // 5. Draw the main colored wire on top of the outline
+      canvas.drawPath(path, mainWirePaint);
+
 
       if (showIds) {
         final midpoint = midpointCalculator(wire.points);
@@ -65,7 +81,6 @@ class WirePainter extends CustomPainter {
               midpoint.dy - textPainter.height / 2),
         );
 
-        // Report hitbox back
         onPaintId(index, rect);
       }
     }
@@ -73,4 +88,16 @@ class WirePainter extends CustomPainter {
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => true;
+}
+
+
+class Wire {
+  final String id;
+  final List<Offset> points;
+  Color color;
+
+  Wire({required this.id, required this.points, required this.color});
+
+  Wire copyWith({String? id, Color? color}) =>
+      Wire(id: id ?? this.id, points: points, color: color ?? this.color);
 }

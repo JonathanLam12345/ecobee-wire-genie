@@ -30,7 +30,7 @@ class _Ecobee3ScreenState extends State<Ecobee3Screen> {
                 spacing: 16.0,
                 runSpacing: 16.0,
                 alignment: WrapAlignment.center,
-                children: List.generate(1, (index) {
+                children: List.generate(5, (index) {
                   //return SizedBox.shrink();
                     return
                       Ecobee3WiringDiagramWidget(

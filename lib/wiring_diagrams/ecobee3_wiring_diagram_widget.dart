@@ -22,91 +22,258 @@ class Ecobee3WiringDiagramWidget extends StatefulWidget {
 
 class _Ecobee3WiringDiagramWidgetState
     extends State<Ecobee3WiringDiagramWidget> {
-  // RepaintBoundary key for capturing the image + wires
   final GlobalKey _captureKey = GlobalKey();
 
-  // Store wire ID hitboxes for rename detection
   Map<int, Rect> wireIdHitboxes = {};
 
   late List<Wire> wires;
   bool showWireIds = false;
 
-  final List<Wire> initialWiresConventional = [
+  final List<Wire> conventional = [
     Wire(
-      id: 'Rc',
-      points: [Offset(322, 42), Offset(285, 42), Offset(285, 336)],
+      id: 'Rh',
+      points: [Offset(315, 88), Offset(253, 90), Offset(250, 258)],
       color: Colors.red,
     ),
     Wire(
       id: 'G',
-      points: [Offset(99, 137), Offset(256, 137), Offset(256, 336)],
+      points: [Offset(96, 121), Offset(278, 122), Offset(281, 258)],
       color: Colors.green,
     ),
     Wire(
       id: 'Y1',
-      points: [Offset(99, 184), Offset(205, 184), Offset(205, 336)],
+      points: [Offset(95, 138), Offset(187, 139), Offset(191, 258)],
       color: Colors.yellow,
     ),
     Wire(
       id: 'W1',
-      points: [Offset(322, 90), Offset(149, 90), Offset(149, 336)],
+      points: [Offset(94, 156), Offset(216, 157), Offset(220, 259)],
       color: (Colors.grey[350])!,
     ),
     Wire(
       id: 'C',
-      points: [
-        Offset(99, 160),
-        Offset(232, 160),
-        Offset(232, 190),
-        Offset(315, 190),
-        Offset(315, 338),
-      ],
+      points: [Offset(315, 106), Offset(269, 109), Offset(267, 258)],
       color: Colors.blue,
     ),
   ];
 
-  // NEW DIAGRAM WIRES (Second Column, First Row)
-  final List<Wire> initial1DoorCam1Chime1Trans = [
+  final List<Wire> heatPump = [
     Wire(
-      id: 'O/B',
-      points: [Offset(100, 120), Offset(250, 120), Offset(250, 340)],
-      color: Colors.orange,
+      id: 'Rh',
+      points: [Offset(315, 88), Offset(285, 90), Offset(283, 259)],
+      color: Colors.red,
     ),
     Wire(
-      id: 'Y2',
-      points: [Offset(90, 180), Offset(200, 180), Offset(200, 340)],
+      id: 'G',
+      points: [Offset(95, 118), Offset(264, 119), Offset(267, 259)],
+      color: Colors.green,
+    ),
+    Wire(
+      id: 'Y1',
+      points: [Offset(95, 135), Offset(236, 137), Offset(238, 259)],
       color: Colors.yellow,
     ),
     Wire(
-      id: 'Aux',
-      points: [Offset(330, 70), Offset(150, 70), Offset(150, 330)],
-      color: Colors.white,
+      id: 'W1',
+      points: [Offset(95, 153), Offset(205, 155), Offset(208, 258)],
+      color: (Colors.grey[350])!,
     ),
     Wire(
-      id: 'L',
-      points: [Offset(330, 40), Offset(280, 40), Offset(280, 330)],
-      color: Colors.purple,
+      id: 'O/B',
+      points: [Offset(96, 171), Offset(190, 173), Offset(193, 259)],
+      color: Colors.orange,
+    ),
+    Wire(
+      id: 'C',
+      points: [Offset(315, 106), Offset(300, 106), Offset(299, 259)],
+      color: Colors.blue,
     ),
   ];
+
+  final List<Wire> dual = [
+    Wire(
+      id: 'Rh',
+      points: [Offset(308, 93), Offset(245, 93), Offset(243, 248)],
+      color: Colors.red,
+    ),
+    Wire(
+      id: 'Rc',
+      points: [Offset(98, 104), Offset(167, 104), Offset(167, 192)],
+      color: Colors.red,
+    ),
+    Wire(
+      id: 'G',
+      points: [Offset(99, 123), Offset(198, 123), Offset(198, 192)],
+      color: Colors.green,
+    ),
+    Wire(
+      id: 'Y1',
+      points: [Offset(98, 139), Offset(139, 139), Offset(139, 192)],
+      color: Colors.yellow,
+    ),
+    Wire(
+      id: 'W1',
+      points: [Offset(96, 156), Offset(228, 156), Offset(229, 248)],
+      color: (Colors.grey[350])!,
+    ),
+    Wire(
+      id: 'C',
+      points: [Offset(308, 109), Offset(184, 109), Offset(183, 192)],
+
+      color: Colors.blue,
+    ),
+    Wire(
+      id: 'AC Y1',
+      points: [Offset(138, 228), Offset(138, 247)],
+
+      color: Colors.red,
+    ),
+    Wire(
+      id: 'AC C',
+      points: [Offset(183, 229), Offset(183, 238),Offset(167, 238), Offset(167, 247)],
+
+      color: (Colors.grey[350])!,
+    )
+  ];
+
+  final List<Wire> heatPumpPEK = [
+    Wire(
+      id: 'Rh',
+      points: [
+        Offset(65, 65),
+        Offset(91, 66),
+        Offset(94, 285),
+        Offset(125, 286),
+      ],
+      color: Colors.red,
+    ),
+    Wire(
+      id: 'G',
+      points: [
+        Offset(65, 80),
+        Offset(101, 81),
+        Offset(104, 278),
+        Offset(125, 279),
+      ],
+      color: Colors.green,
+    ),
+    Wire(
+      id: 'Y1',
+      points: [
+        Offset(65, 95),
+        Offset(82, 97),
+        Offset(86, 272),
+        Offset(124, 273),
+      ],
+      color: Colors.yellow,
+    ),
+    Wire(
+      id: 'W1',
+      points: [
+        Offset(65, 108),
+        Offset(73, 109),
+        Offset(76, 265),
+        Offset(124, 266),
+      ],
+      color: (Colors.grey[350])!,
+    ),
+    Wire(
+      id: 'O/B',
+      points: [
+        Offset(65, 126),
+        Offset(117, 127),
+        Offset(121, 176),
+        Offset(375, 180),
+        Offset(377, 261),
+      ],
+      color: Colors.orange,
+    ),
+    Wire(
+      id: 'PEK Y',
+      points: [Offset(179, 204), Offset(363, 205), Offset(365, 260)],
+      color: Colors.yellow,
+    ),
+
+    Wire(
+      id: 'PEK W',
+      points: [Offset(179, 210), Offset(350, 212), Offset(352, 260)],
+      color: Colors.grey,
+    ),
+    Wire(
+      id: 'PEK G',
+      points: [Offset(179, 217), Offset(325, 223), Offset(338, 260)],
+      color: Colors.green,
+    ),
+    Wire(
+      id: 'PEK C',
+      points: [Offset(179, 222), Offset(325, 224), Offset(326, 260)],
+      color: Colors.blue,
+    ),
+    Wire(
+      id: 'PEK R',
+      points: [Offset(179, 229), Offset(311, 231), Offset(312, 260)],
+      color: Colors.red,
+    ),
+
+
+  ];
+
+  final List<Wire> accessory = [
+    Wire(
+      id: '24V to ACC+',
+      points:  [Offset(196, 199), Offset(323, 199)],
+      color: Colors.red,
+    ),
+
+    Wire(
+      id: 'C to ACC-',
+      points: [Offset(194, 215), Offset(323, 215)],
+      color: Colors.blue,
+    ),
+    Wire(
+      id: '24V to ACC+',
+      points:  [Offset(194, 262), Offset(324, 262)]
+      ,
+      color: Colors.red,
+    ),
+
+    Wire(
+      id: 'C to ACC-',
+      points:  [Offset(196, 279), Offset(255, 281), Offset(257, 297)],
+      color: Colors.blue,
+    ),
+  ];
+
 
   @override
   void initState() {
     super.initState();
     // Use different sets of wires for each diagram
-    if (widget.diagramIndex == 1) {
-      // Second column, first row
-      wires = List.from(initial1DoorCam1Chime1Trans);
-    } else {
-      wires = List.from(initialWiresConventional);
+    if (widget.diagramIndex == 0) {
+      wires = List.from(conventional);
+    } else if (widget.diagramIndex == 1) {
+      wires = List.from(heatPump);
+    } else if (widget.diagramIndex == 2) {
+      wires = List.from(heatPumpPEK);
+    } else if (widget.diagramIndex == 3) {
+      wires = List.from(dual);
+    } else if (widget.diagramIndex == 4) {
+      wires = List.from(accessory);
     }
   }
 
   void resetToDefault() {
     setState(() {
-      if (widget.diagramIndex == 1) {
-        wires = List.from(initial1DoorCam1Chime1Trans);
-      } else {
-        wires = List.from(initialWiresConventional);
+      if (widget.diagramIndex == 0) {
+        wires = List.from(conventional);
+      } else if (widget.diagramIndex == 1) {
+        wires = List.from(heatPump);
+      } else if (widget.diagramIndex == 2) {
+        wires = List.from(heatPumpPEK);
+      } else if (widget.diagramIndex == 3) {
+        wires = List.from(dual);
+      } else if (widget.diagramIndex == 4) {
+        wires = List.from(accessory);
       }
       showWireIds = false;
     });
@@ -129,23 +296,24 @@ class _Ecobee3WiringDiagramWidgetState
 
     final newId = await showDialog<String>(
       context: context,
-      builder: (_) => AlertDialog(
-        title: const Text('Rename Wire ID'),
-        content: TextField(
-          controller: controller,
-          decoration: const InputDecoration(labelText: 'Wire ID'),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('Cancel'),
+      builder: (_) =>
+          AlertDialog(
+            title: const Text('Rename Wire ID'),
+            content: TextField(
+              controller: controller,
+              decoration: const InputDecoration(labelText: 'Wire ID'),
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: const Text('Cancel'),
+              ),
+              TextButton(
+                onPressed: () => Navigator.pop(context, controller.text.trim()),
+                child: const Text('Save'),
+              ),
+            ],
           ),
-          TextButton(
-            onPressed: () => Navigator.pop(context, controller.text.trim()),
-            child: const Text('Save'),
-          ),
-        ],
-      ),
     );
 
     if (newId != null && newId.isNotEmpty) {
@@ -179,7 +347,8 @@ class _Ecobee3WiringDiagramWidgetState
   }
 
   bool _isPointNearLine(Offset p, Offset a, Offset b, {double tolerance = 10}) {
-    final dx = b.dx - a.dx, dy = b.dy - a.dy;
+    final dx = b.dx - a.dx,
+        dy = b.dy - a.dy;
     final lengthSquared = dx * dx + dy * dy;
 
     if (lengthSquared == 0) return (p - a).distance <= tolerance;
@@ -219,7 +388,8 @@ class _Ecobee3WiringDiagramWidgetState
   Future<void> _saveCapture() async {
     try {
       final boundary =
-      _captureKey.currentContext?.findRenderObject() as RenderRepaintBoundary?;
+      _captureKey.currentContext?.findRenderObject()
+      as RenderRepaintBoundary?;
       if (boundary == null) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Capture area not available')),
@@ -230,8 +400,9 @@ class _Ecobee3WiringDiagramWidgetState
       final ui.Image image = await boundary.toImage(
         pixelRatio: ui.window.devicePixelRatio,
       );
-      final ByteData? byteData =
-      await image.toByteData(format: ui.ImageByteFormat.png);
+      final ByteData? byteData = await image.toByteData(
+        format: ui.ImageByteFormat.png,
+      );
       if (byteData == null) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Failed to capture image')),
@@ -247,7 +418,9 @@ class _Ecobee3WiringDiagramWidgetState
         final anchor = html.document.createElement('a') as html.AnchorElement;
         anchor.href = url;
         anchor.download =
-        'diagram_${widget.diagramIndex}_${DateTime.now().millisecondsSinceEpoch}.png';
+        'diagram_${widget.diagramIndex}_${DateTime
+            .now()
+            .millisecondsSinceEpoch}.png';
         html.document.body!.append(anchor);
         anchor.click();
         anchor.remove();
@@ -255,19 +428,21 @@ class _Ecobee3WiringDiagramWidgetState
       } else {
         showDialog(
           context: context,
-          builder: (_) => AlertDialog(
-            title: const Text('Captured image'),
-            content: ConstrainedBox(
-              constraints: const BoxConstraints(maxHeight: 400, maxWidth: 300),
-              child: Image.memory(pngBytes),
-            ),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.pop(context),
-                child: const Text('Close'),
+          builder: (_) =>
+              AlertDialog(
+                title: const Text('Captured image'),
+                content: ConstrainedBox(
+                  constraints: const BoxConstraints(
+                      maxHeight: 400, maxWidth: 300),
+                  child: Image.memory(pngBytes),
+                ),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(context),
+                    child: const Text('Close'),
+                  ),
+                ],
               ),
-            ],
-          ),
         );
       }
     } catch (e) {
@@ -275,19 +450,30 @@ class _Ecobee3WiringDiagramWidgetState
     }
   }
 
- @override
+  @override
   Widget build(BuildContext context) {
-   const double imageWidth = 431, imageHeight = 414;
-   // const double imageWidth = 431, imageHeight = 414;
+    const double imageWidth = 420,
+        imageHeight = 420;
 
-    // Select image based on diagram index
-    final String imagePath = widget.diagramIndex == 1
-        ? 'assets/doorCam1Chime1Trans.jpg' // NEW wiring diagram image
-        : 'assets/conventional.png';
+    final String imagePath = widget.diagramIndex == 0
+        ? 'assets/ecobee3_Wiring_Conventional-1.png'
+        : widget.diagramIndex == 1
+        ? 'assets/ecobee3_Wiring_HeatPump-1.png'
+        : widget.diagramIndex == 2
+        ? 'assets/ecobee3-stg-heatpump-1-stg-aux-with-PEK.png'
+        : widget.diagramIndex == 3
+        ? 'assets/ecobee3_Wiring_Boiler-1.png'
+        : 'assets/ecobee3_Wiring_Accessory-1.png';
 
-    final String title = widget.diagramIndex == 1
-        ? "Heat Pump Installation"
-        : "Conventional Heating and Cooling Installation";
+    final String title = widget.diagramIndex == 0
+        ? "Conventional Heating and Cooling Installation"
+        : widget.diagramIndex == 1
+        ? 'Heat Pump Installation'
+        : widget.diagramIndex == 2
+        ? 'Heat Pump with PEK Installation'
+        : widget.diagramIndex == 3
+        ? 'Dual Transformer Installation'
+        : 'Accessory Installation';
 
     return Card(
       elevation: 3,
@@ -343,22 +529,26 @@ class _Ecobee3WiringDiagramWidgetState
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.orange,
-                    padding:
-                    const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 24,
+                      vertical: 10,
+                    ),
                   ),
                   onPressed: resetToDefault,
                   child: const Text("Reset to Default"),
                 ),
                 ElevatedButton.icon(
                   icon: Icon(
-                      showWireIds ? Icons.visibility : Icons.visibility_off),
-                  label:
-                  Text(showWireIds ? "Hide Wire IDs" : "Show Wire IDs"),
+                    showWireIds ? Icons.visibility : Icons.visibility_off,
+                  ),
+                  label: Text(showWireIds ? "Hide Wire IDs" : "Show Wire IDs"),
                   onPressed: toggleWireIds,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blueAccent,
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 16, vertical: 10),
+                      horizontal: 16,
+                      vertical: 10,
+                    ),
                   ),
                 ),
                 ElevatedButton.icon(
@@ -368,7 +558,9 @@ class _Ecobee3WiringDiagramWidgetState
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.green,
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 16, vertical: 10),
+                      horizontal: 16,
+                      vertical: 10,
+                    ),
                   ),
                 ),
               ],

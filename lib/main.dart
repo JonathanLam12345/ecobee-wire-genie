@@ -55,14 +55,3 @@ class WiringApp extends StatelessWidget {
     );
   }
 }
-
-class Wire {
-  final String id;
-  final List<Offset> points;
-  Color color;
-
-  Wire({required this.id, required this.points, required this.color});
-
-  Wire copyWith({String? id, Color? color}) =>
-      Wire(id: id ?? this.id, points: points, color: color ?? this.color);
-}

@@ -29,7 +29,7 @@ class _PremiumScreenState extends State<PremiumScreen> {
                 spacing: 16.0,
                 runSpacing: 16.0,
                 alignment: WrapAlignment.center,
-                children: List.generate(1, (index) {
+                children: List.generate(4, (index) {
                   //return SizedBox.shrink();
                     return
                   PremiumWiringDiagramWidget(

@@ -6,7 +6,6 @@ import 'dart:ui' as ui;
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import '../main.dart';
 import '../paint_features/color_picker_dialog.dart';
 import '../paint_features/wire_painter.dart';
 
@@ -31,61 +30,393 @@ class _PremiumWiringDiagramWidgetState
   late List<Wire> wires;
   bool showWireIds = false;
 
-  final List<Wire> initialWiresConventional = [
+  final List<Wire> conventional = [
     Wire(
       id: 'Rc',
-      points: [Offset(322, 42), Offset(285, 42), Offset(285, 336)],
+      points: [Offset(333, 17), Offset(289, 17), Offset(285, 344)],
       color: Colors.red,
     ),
     Wire(
       id: 'G',
-      points: [Offset(99, 137), Offset(256, 137), Offset(256, 336)],
+      points: [Offset(79, 121), Offset(255, 121), Offset(257, 346)],
       color: Colors.green,
     ),
     Wire(
       id: 'Y1',
-      points: [Offset(99, 184), Offset(205, 184), Offset(205, 336)],
+      points: [Offset(78, 177), Offset(201, 178), Offset(199, 346)],
+      color: Colors.yellow,
+    ),
+    Wire(
+      id: 'Y2',
+      points: [Offset(79, 203), Offset(227, 204), Offset(230, 345)],
       color: Colors.yellow,
     ),
     Wire(
       id: 'W1',
-      points: [Offset(322, 90), Offset(149, 90), Offset(149, 336)],
+      points: [Offset(331, 70), Offset(135, 72), Offset(135, 345)],
+      color: (Colors.grey[350])!,
+    ),
+    Wire(
+      id: 'W2',
+      points: [Offset(332, 98), Offset(169, 97), Offset(165, 346)],
       color: (Colors.grey[350])!,
     ),
     Wire(
       id: 'C',
       points: [
-        Offset(99, 160),
-        Offset(232, 160),
-        Offset(232, 190),
-        Offset(315, 190),
-        Offset(315, 338),
+        Offset(78, 150),
+        Offset(229, 151),
+        Offset(229, 181),
+        Offset(320, 185),
+        Offset(320, 346),
+      ],
+      color: Colors.blue,
+    ),
+
+    Wire(
+      id: 'AC Y1',
+      points: [
+        Offset(22, 348),
+        Offset(22, 289),
+        Offset(189, 291),
+        Offset(191, 345),
+      ],
+      color: Colors.red,
+    ),
+
+    Wire(
+      id: 'AC Y2',
+      points: [
+        Offset(50, 350),
+        Offset(53, 305),
+        Offset(222, 305),
+        Offset(222, 346),
+      ],
+      color: Colors.red,
+    ),
+    Wire(
+      id: 'AC C',
+      points: [
+        Offset(81, 344),
+        Offset(82, 316),
+        Offset(312, 320),
+        Offset(315, 345),
+      ],
+      color: Colors.grey,
+    ),
+  ];
+
+  // NEW DIAGRAM WIRES (Second Column, First Row)
+  final List<Wire> pek = [
+    Wire(
+      id: 'C',
+      points: [Offset(108, 66), Offset(236, 66), Offset(235, 140)],
+      color: Colors.orange,
+    ),
+    Wire(
+      id: 'PEK+',
+      points: [Offset(137, 144), Offset(225, 143), Offset(226, 154)],
+      color: Colors.yellow,
+    ),
+    Wire(
+      id: 'Rc',
+      points: [Offset(311, 16), Offset(257, 18), Offset(255, 140)],
+      color: Colors.red,
+    ),
+    Wire(
+      id: 'W1',
+      points: [Offset(302, 86), Offset(211, 87), Offset(211, 153)],
+      color: Colors.grey,
+    ),
+    Wire(
+      id: 'Y2',
+      points: [
+        Offset(136, 126),
+        Offset(154, 127),
+        Offset(156, 276),
+        Offset(230, 279),
+        Offset(232, 330),
+      ],
+      color: Colors.yellow,
+    ),
+    Wire(
+      id: 'W2',
+      points: [
+        Offset(302, 102),
+        Offset(289, 104),
+        Offset(287, 250),
+        Offset(193, 252),
+        Offset(192, 330),
+      ],
+      color: Colors.grey,
+    ),
+    Wire(
+      id: 'PEK Y',
+      points: [Offset(210, 239), Offset(212, 330)],
+      color: Colors.grey,
+    ),
+    Wire(
+      id: 'PEK W',
+      points: [
+        Offset(223, 239),
+        Offset(222, 263),
+        Offset(174, 266),
+        Offset(173, 330),
+      ],
+      color: Colors.grey,
+    ),
+    Wire(
+      id: 'PEK G',
+      points: [
+        Offset(235, 237),
+        Offset(236, 275),
+        Offset(247, 277),
+        Offset(249, 330),
+      ],
+
+      color: Colors.grey,
+    ),
+    Wire(
+      id: 'PEK C',
+      points: [
+        Offset(246, 238),
+        Offset(247, 264),
+        Offset(287, 265),
+        Offset(288, 330),
+      ],
+      color: Colors.blue,
+    ),
+    Wire(
+      id: 'PEK Y',
+      points: [Offset(302, 86), Offset(211, 87), Offset(211, 153)],
+      color: Colors.grey,
+    ),
+    Wire(
+      id: 'PEK R',
+      points: [
+        Offset(256, 238),
+        Offset(259, 277),
+        Offset(266, 279),
+        Offset(267, 331),
+      ],
+      color: Colors.grey,
+    ),
+    Wire(
+      id: 'AC Y1',
+      points: [
+        Offset(100, 330),
+        Offset(102, 305),
+        Offset(205, 305),
+        Offset(207, 332),
+      ],
+
+      color: Colors.grey,
+    ),
+    Wire(
+      id: 'AC Y2',
+      points: [
+        Offset(119, 330),
+        Offset(120, 291),
+        Offset(226, 291),
+        Offset(227, 330),
+      ],
+
+      color: Colors.grey,
+    ),
+    Wire(
+      id: 'AC C',
+      points: [
+        Offset(138, 330),
+        Offset(140, 317),
+        Offset(283, 318),
+        Offset(284, 330),
+      ],
+
+      color: Colors.grey,
+    ),
+  ];
+
+  final List<Wire> heatPump = [
+    Wire(
+      id: 'Rc',
+      points: [Offset(323, 76), Offset(299, 77), Offset(298, 316)],
+      color: Colors.red,
+    ),
+    Wire(
+      id: 'G',
+      points: [Offset(87, 144), Offset(275, 144), Offset(277, 316)],
+      color: Colors.green,
+    ),
+    Wire(
+      id: 'Y1',
+      points: [Offset(87, 177), Offset(240, 178), Offset(241, 316)],
+
+      color: Colors.yellow,
+    ),
+    Wire(
+      id: 'Y2',
+      points: [Offset(87, 194), Offset(259, 196), Offset(259, 315)],
+
+      color: Colors.yellow,
+    ),
+    Wire(
+      id: 'W1',
+      points: [Offset(322, 110), Offset(202, 112), Offset(202, 315)],
+      color: (Colors.grey[350])!,
+    ),
+    Wire(
+      id: 'W2',
+      points: [Offset(324, 126), Offset(220, 127), Offset(219, 316)],
+      color: (Colors.grey[350])!,
+    ),
+    Wire(
+      id: 'O/B',
+      points: [Offset(87, 228), Offset(182, 229), Offset(183, 315)],
+      color: Colors.orange,
+    ),
+    Wire(
+      id: 'HP C',
+      points: [Offset(87, 161), Offset(317, 162), Offset(318, 316)],
+      color: Colors.blue,
+    ),
+
+    Wire(
+      id: 'HP O/B',
+      points: [
+        Offset(52, 315),
+        Offset(51, 304),
+        Offset(177, 304),
+        Offset(179, 315),
+      ],
+      color: Colors.orange,
+    ),
+    Wire(
+      id: 'HP W2',
+      points: [
+        Offset(71, 315),
+        Offset(72, 291),
+        Offset(194, 290),
+        Offset(197, 315),
+      ],
+      color: Colors.grey,
+    ),
+    Wire(
+      id: 'HP Y1',
+      points: [
+        Offset(91, 314),
+        Offset(92, 277),
+        Offset(233, 276),
+        Offset(236, 316),
+      ],
+      color: Colors.yellow,
+    ),
+    Wire(
+      id: 'HP Y2',
+      points: [
+        Offset(109, 315),
+        Offset(111, 264),
+        Offset(254, 264),
+        Offset(255, 315),
+      ],
+      color: Colors.yellow,
+    ),
+    Wire(
+      id: 'HP R',
+      points: [
+        Offset(129, 314),
+        Offset(129, 251),
+        Offset(293, 251),
+        Offset(293, 314),
+      ],
+      color: Colors.orange,
+    ),
+    Wire(
+      id: 'HP O/B',
+      points: [
+        Offset(52, 315),
+        Offset(51, 304),
+        Offset(177, 304),
+        Offset(179, 315),
+      ],
+      color: Colors.orange,
+    ),
+    Wire(
+      id: 'HP C',
+      points: [
+        Offset(148, 316),
+        Offset(149, 237),
+        Offset(312, 237),
+        Offset(314, 315),
       ],
       color: Colors.blue,
     ),
   ];
 
-  // NEW DIAGRAM WIRES (Second Column, First Row)
-  final List<Wire> initial1DoorCam1Chime1Trans = [
+  final List<Wire> dual = [
     Wire(
-      id: 'O/B',
-      points: [Offset(100, 120), Offset(250, 120), Offset(250, 340)],
-      color: Colors.orange,
+      id: 'Rh',
+      points: [Offset(315, 95), Offset(293, 96), Offset(292, 297)],
+
+      color: Colors.red,
     ),
     Wire(
-      id: 'Y2',
-      points: [Offset(90, 180), Offset(200, 180), Offset(200, 340)],
+      id: 'Rc',
+      points: [Offset(315, 77), Offset(172, 78), Offset(171, 214)],
+
+      color: Colors.red,
+    ),
+    Wire(
+      id: 'G',
+      points: [Offset(105, 95), Offset(212, 97), Offset(212, 215)],
+
+      color: Colors.green,
+    ),
+    Wire(
+      id: 'Y1',
+      points: [Offset(105, 132), Offset(128, 133), Offset(129, 215)],
       color: Colors.yellow,
     ),
     Wire(
-      id: 'Aux',
-      points: [Offset(330, 70), Offset(150, 70), Offset(150, 330)],
-      color: Colors.white,
+      id: 'Y2',
+      points: [Offset(105, 150), Offset(149, 150), Offset(150, 215)],
+      color: Colors.yellow,
     ),
     Wire(
-      id: 'L',
-      points: [Offset(330, 40), Offset(280, 40), Offset(280, 330)],
-      color: Colors.purple,
+      id: 'W1',
+      points: [Offset(314, 114), Offset(250, 115), Offset(250, 297)],
+
+      color: (Colors.grey[350])!,
+    ),
+    Wire(
+      id: 'W2',
+      points: [Offset(315, 132), Offset(272, 133), Offset(270, 297)],
+
+      color: (Colors.grey[350])!,
+    ),
+    Wire(
+      id: 'C',
+      points: [Offset(105, 114), Offset(191, 115), Offset(191, 214)],
+
+      color: Colors.blue,
+    ),
+    Wire(
+      id: 'AC Y1',
+      points:  [Offset(129, 257), Offset(129, 298)],
+
+      color: Colors.red,
+    ),
+    Wire(
+      id: 'AC Y2',
+      points:   [Offset(149, 257), Offset(150, 297)],
+
+
+      color: Colors.red,
+    ),
+    Wire(
+      id: 'AC C',
+      points: [Offset(191, 257), Offset(190, 276), Offset(171, 279), Offset(171, 298)],
+
+      color: (Colors.grey[350])!,
     ),
   ];
 
@@ -93,20 +424,29 @@ class _PremiumWiringDiagramWidgetState
   void initState() {
     super.initState();
     // Use different sets of wires for each diagram
-    if (widget.diagramIndex == 1) {
-      // Second column, first row
-      wires = List.from(initial1DoorCam1Chime1Trans);
-    } else {
-      wires = List.from(initialWiresConventional);
+    if (widget.diagramIndex == 0) {
+      wires = List.from(conventional);
+    } else if (widget.diagramIndex == 1) {
+      wires = List.from(pek);
+    } else if (widget.diagramIndex == 2) {
+      wires = List.from(heatPump);
+    } else if (widget.diagramIndex == 3) {
+      wires = List.from(dual);
     }
   }
 
   void resetToDefault() {
     setState(() {
-      if (widget.diagramIndex == 1) {
-        wires = List.from(initial1DoorCam1Chime1Trans);
-      } else {
-        wires = List.from(initialWiresConventional);
+      if (widget.diagramIndex == 0) {
+        wires = List.from(conventional);
+      } else if (widget.diagramIndex == 1) {
+        wires = List.from(pek);
+      } else if (widget.diagramIndex == 2) {
+        wires = List.from(heatPump);
+      } else if (widget.diagramIndex == 3) {
+        wires = List.from(dual);
+      } else if (widget.diagramIndex == 4) {
+        //wires = List.from(accessory);
       }
       showWireIds = false;
     });
@@ -219,7 +559,8 @@ class _PremiumWiringDiagramWidgetState
   Future<void> _saveCapture() async {
     try {
       final boundary =
-      _captureKey.currentContext?.findRenderObject() as RenderRepaintBoundary?;
+          _captureKey.currentContext?.findRenderObject()
+              as RenderRepaintBoundary?;
       if (boundary == null) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Capture area not available')),
@@ -230,8 +571,9 @@ class _PremiumWiringDiagramWidgetState
       final ui.Image image = await boundary.toImage(
         pixelRatio: ui.window.devicePixelRatio,
       );
-      final ByteData? byteData =
-      await image.toByteData(format: ui.ImageByteFormat.png);
+      final ByteData? byteData = await image.toByteData(
+        format: ui.ImageByteFormat.png,
+      );
       if (byteData == null) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Failed to capture image')),
@@ -247,7 +589,7 @@ class _PremiumWiringDiagramWidgetState
         final anchor = html.document.createElement('a') as html.AnchorElement;
         anchor.href = url;
         anchor.download =
-        'diagram_${widget.diagramIndex}_${DateTime.now().millisecondsSinceEpoch}.png';
+            'diagram_${widget.diagramIndex}_${DateTime.now().millisecondsSinceEpoch}.png';
         html.document.body!.append(anchor);
         anchor.click();
         anchor.remove();
@@ -275,19 +617,25 @@ class _PremiumWiringDiagramWidgetState
     }
   }
 
- @override
+  @override
   Widget build(BuildContext context) {
-   const double imageWidth = 431, imageHeight = 414;
-   // const double imageWidth = 431, imageHeight = 414;
+    const double imageWidth = 420, imageHeight = 420;
 
-    // Select image based on diagram index
-    final String imagePath = widget.diagramIndex == 1
-        ? 'assets/doorCam1Chime1Trans.jpg' // NEW wiring diagram image
-        : 'assets/conventional.png';
+    final String imagePath = widget.diagramIndex == 0
+        ? 'assets/Smart_Thermostat_Premium_Conventional.png'
+        : widget.diagramIndex == 1
+        ? 'assets/Smart_Thermostat_Premium_PEK_Conventional.png'
+        : widget.diagramIndex == 2
+        ? 'assets/Smart_Thermostat_Premium_Heatpump.png'
+        : 'assets/Smart_Thermostat_Premium_Boiler_or_Radiant_System.png';
 
-    final String title = widget.diagramIndex == 1
-        ? "Heat Pump Installation"
-        : "Conventional Heating and Cooling Installation";
+    final String title = widget.diagramIndex == 0
+        ? "Conventional Heating and Cooling Installation"
+        : widget.diagramIndex == 1
+        ? 'PEK Installation'
+        : widget.diagramIndex == 2
+        ? 'Heat Pump Installation'
+        : 'Dual Transformer Installation';
 
     return Card(
       elevation: 3,
@@ -343,22 +691,26 @@ class _PremiumWiringDiagramWidgetState
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.orange,
-                    padding:
-                    const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 24,
+                      vertical: 10,
+                    ),
                   ),
                   onPressed: resetToDefault,
                   child: const Text("Reset to Default"),
                 ),
                 ElevatedButton.icon(
                   icon: Icon(
-                      showWireIds ? Icons.visibility : Icons.visibility_off),
-                  label:
-                  Text(showWireIds ? "Hide Wire IDs" : "Show Wire IDs"),
+                    showWireIds ? Icons.visibility : Icons.visibility_off,
+                  ),
+                  label: Text(showWireIds ? "Hide Wire IDs" : "Show Wire IDs"),
                   onPressed: toggleWireIds,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blueAccent,
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 16, vertical: 10),
+                      horizontal: 16,
+                      vertical: 10,
+                    ),
                   ),
                 ),
                 ElevatedButton.icon(
@@ -368,7 +720,9 @@ class _PremiumWiringDiagramWidgetState
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.green,
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 16, vertical: 10),
+                      horizontal: 16,
+                      vertical: 10,
+                    ),
                   ),
                 ),
               ],
