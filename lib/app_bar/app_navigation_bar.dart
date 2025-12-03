@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'hover_dropdown_button.dart';
 
-/// Reusable AppBar for consistent navigation across all screens.
 class AppNavigationBar extends StatelessWidget implements PreferredSizeWidget {
   // A function to handle navigation specific to the current page.
   final bool showBackButton;
@@ -54,7 +53,7 @@ class AppNavigationBar extends StatelessWidget implements PreferredSizeWidget {
       actions: [
         // Home Menu
         _buildNavBarButton(
-          label: "Home Menu",
+          label: "Home",
           icon: Icons.home,
           onTap: () {
             if (currentRoute != '/home') {

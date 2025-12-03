@@ -29,10 +29,10 @@ class _PremiumWiringDiagramWidgetState
   late List<Wire> wires;
   bool showWireIds = false;
 
-  final List<Wire> conventional = [
+  final List<Wire> doorbell1 = [
     Wire(
-      id: 'Rc',
-      points: [Offset(333, 17), Offset(289, 17), Offset(289, 346)],
+      id: 'doorbell1',
+      points: [Offset(62, 159), Offset(88, 159)],
       color: Colors.red,
     ),
     Wire(
@@ -339,7 +339,8 @@ class _PremiumWiringDiagramWidgetState
       color: Colors.blue,
     ),
   ];
-/////////////////////////////////////////DUAL////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  /////////////////////////////////////////DUAL////////////////////////////////////////////////////////////////////////////////////////////////////////
   final List<Wire> dual = [
     Wire(
       id: 'Rh',
@@ -417,28 +418,34 @@ class _PremiumWiringDiagramWidgetState
     super.initState();
     // Use different sets of wires for each diagram
     if (widget.diagramIndex == 0) {
-      wires = List.from(conventional);
+      wires = List.from(doorbell1);
     } else if (widget.diagramIndex == 1) {
-      wires = List.from(pek);
+      wires = List.from(doorbell1);
     } else if (widget.diagramIndex == 2) {
-      wires = List.from(heatPump);
+      wires = List.from(doorbell1);
     } else if (widget.diagramIndex == 3) {
-      wires = List.from(dual);
+      wires = List.from(doorbell1);
+    } else if (widget.diagramIndex == 4) {
+      wires = List.from(doorbell1);
+    } else if (widget.diagramIndex == 5) {
+      wires = List.from(doorbell1);
     }
   }
 
   void resetToDefault() {
     setState(() {
       if (widget.diagramIndex == 0) {
-        wires = List.from(conventional);
+        wires = List.from(doorbell1);
       } else if (widget.diagramIndex == 1) {
-        wires = List.from(pek);
+        wires = List.from(doorbell1);
       } else if (widget.diagramIndex == 2) {
-        wires = List.from(heatPump);
+        wires = List.from(doorbell1);
       } else if (widget.diagramIndex == 3) {
-        wires = List.from(dual);
+        wires = List.from(doorbell1);
       } else if (widget.diagramIndex == 4) {
-        //wires = List.from(accessory);
+        wires = List.from(doorbell1);
+      } else if (widget.diagramIndex == 5) {
+        wires = List.from(doorbell1);
       }
       showWireIds = false;
     });
@@ -551,8 +558,8 @@ class _PremiumWiringDiagramWidgetState
   Future<void> _saveCapture() async {
     try {
       final boundary =
-      _captureKey.currentContext?.findRenderObject()
-      as RenderRepaintBoundary?;
+          _captureKey.currentContext?.findRenderObject()
+              as RenderRepaintBoundary?;
       if (boundary == null) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Capture area not available')),
@@ -577,12 +584,16 @@ class _PremiumWiringDiagramWidgetState
 
       if (kIsWeb) {
         final title = widget.diagramIndex == 0
-            ? "Conventional Installation"
+            ? "Doorbell Camera-1"
             : widget.diagramIndex == 1
-            ? 'PEK Installation'
+            ? 'oorbell Camera-2'
             : widget.diagramIndex == 2
-            ? 'Heat Pump Installation'
-            : 'Dual Transformer Installation';
+            ? 'Doorbell Camera-3'
+            : widget.diagramIndex == 3
+            ? 'Doorbell Camera-4'
+            : widget.diagramIndex == 4
+            ? 'Doorbell Camera-5'
+           : 'Doorbell Camera-6';
 
         final title2 = title
             .replaceAll(RegExp(r'[^\w\s-]'), '') // Remove special characters
@@ -594,9 +605,7 @@ class _PremiumWiringDiagramWidgetState
         anchor.href = url;
 
         // 3. Set the new filename using the sanitized title
-        anchor.download =
-        'Premium_$title2.png';
-
+        anchor.download = 'Premium_$title2.png';
 
         html.document.body!.append(anchor);
         anchor.click();
@@ -630,20 +639,28 @@ class _PremiumWiringDiagramWidgetState
     const double imageWidth = 420, imageHeight = 420;
 
     final String imagePath = widget.diagramIndex == 0
-        ? 'assets/Smart_Thermostat_Premium_Conventional.png'
+        ? 'assets/1-doorbell-1-chime-1-transformer.png'
         : widget.diagramIndex == 1
-        ? 'assets/Smart_Thermostat_Premium_PEK_Conventional.png'
+        ? 'assets/1-doorbell-camera_1-plugin-transformer.png'
         : widget.diagramIndex == 2
-        ? 'assets/Smart_Thermostat_Premium_Heatpump.png'
-        : 'assets/Smart_Thermostat_Premium_Boiler_or_Radiant_System.png';
+        ? 'assets/1-doorbell-camera-1-doorbell-button-1-chime-1-transformer.png'
+        : widget.diagramIndex == 3
+        ? 'assets/2-doorbell-cameras-1-chime_1-transformer.png'
+        : widget.diagramIndex == 4
+        ? 'assets/1-doorbell-camera_2-or-more-doorbell-buttons_1-chime_1-transformer.png'
+       : 'assets/1-doorbell-camera_2-or-more-doorbell-buttons_1-chime_1-transformer.png';
 
     final String title = widget.diagramIndex == 0
-        ? "Conventional Heating and Cooling Installation"
+        ? "1 Doorbell Camera, 1 Chime Box"
         : widget.diagramIndex == 1
-        ? 'PEK Installation'
+        ? '1 Doorbell Camera, Plug-in Transformer'
         : widget.diagramIndex == 2
-        ? 'Heat Pump Installation'
-        : 'Dual Transformer Installation';
+        ? '1 Doorbell Camera, 1 Doorbell Button, 1 Chime Box'
+        : widget.diagramIndex == 3
+        ? '1 Doorbell Camera, 1 Doorbell Button, 1 Chime Box'
+        : widget.diagramIndex == 4
+        ? '1 Doorbell Camera, 2 Doorbell Button, 1 Chime Box'
+       : 'Dual Transformer Installation';
 
     return Card(
       elevation: 3,

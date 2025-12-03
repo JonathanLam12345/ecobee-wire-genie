@@ -30,7 +30,7 @@ class _DoorbellScreenState extends State<DoorbellScreen> {
                 spacing: 16.0,
                 runSpacing: 16.0,
                 alignment: WrapAlignment.center,
-                children: List.generate(4, (index) {
+                children: List.generate(5, (index) {
                   //return SizedBox.shrink();
                   return DoorbellWiringDiagramWidget(
                     key: GlobalKey(), // unique key per instance

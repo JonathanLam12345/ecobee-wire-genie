@@ -554,7 +554,9 @@ class _Ecobee3WiringDiagramWidgetState
                 ElevatedButton.icon(
                   icon: const Icon(Icons.save),
                   label: const Text('Save Image'),
-                  onPressed: _saveCapture,
+                  onPressed: () {
+                    _saveCapture();
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.green,
                     padding: const EdgeInsets.symmetric(

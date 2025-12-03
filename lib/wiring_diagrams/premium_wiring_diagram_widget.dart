@@ -340,7 +340,8 @@ class _PremiumWiringDiagramWidgetState
       color: Colors.blue,
     ),
   ];
-/////////////////////////////////////////DUAL////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  /////////////////////////////////////////DUAL////////////////////////////////////////////////////////////////////////////////////////////////////////
   final List<Wire> dual = [
     Wire(
       id: 'Rh',
@@ -474,7 +475,9 @@ class _PremiumWiringDiagramWidgetState
             child: const Text('Cancel'),
           ),
           TextButton(
-            onPressed: () => Navigator.pop(context, controller.text.trim()),
+            onPressed: () {
+              return Navigator.pop(context, controller.text.trim());
+            },
             child: const Text('Save'),
           ),
         ],
@@ -552,8 +555,8 @@ class _PremiumWiringDiagramWidgetState
   Future<void> _saveCapture() async {
     try {
       final boundary =
-      _captureKey.currentContext?.findRenderObject()
-      as RenderRepaintBoundary?;
+          _captureKey.currentContext?.findRenderObject()
+              as RenderRepaintBoundary?;
       if (boundary == null) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Capture area not available')),
@@ -595,9 +598,7 @@ class _PremiumWiringDiagramWidgetState
         anchor.href = url;
 
         // 3. Set the new filename using the sanitized title
-        anchor.download =
-        'Premium_$title2.png';
-
+        anchor.download = 'Premium_$title2.png';
 
         html.document.body!.append(anchor);
         anchor.click();
@@ -725,7 +726,9 @@ class _PremiumWiringDiagramWidgetState
                 ElevatedButton.icon(
                   icon: const Icon(Icons.save),
                   label: const Text('Save Image'),
-                  onPressed: _saveCapture,
+                  onPressed: () {
+                    _saveCapture();
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.green,
                     padding: const EdgeInsets.symmetric(
