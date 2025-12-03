@@ -1,6 +1,8 @@
 import 'package:ecobee_wire_genie/screens/doorbell_screen.dart';
 import 'package:ecobee_wire_genie/screens/enhanced_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 
 import 'package:ecobee_wire_genie/screens/about_screen.dart';
 import 'package:ecobee_wire_genie/screens/feature_request_screen.dart';
@@ -8,7 +10,6 @@ import 'package:ecobee_wire_genie/screens/home_screen.dart';
 import 'package:ecobee_wire_genie/screens/premium_screen.dart';
 import 'package:ecobee_wire_genie/screens/ecobee3_screen.dart';
 
-import 'package:flutter/material.dart';
 
 
 Future<void> main() async {
@@ -31,6 +32,7 @@ Future<void> main() async {
 
 class WiringApp extends StatelessWidget {
   const WiringApp({super.key});
+  static FirebaseAnalytics analytics = FirebaseAnalytics.instance;
 
   @override
   Widget build(BuildContext context) {
