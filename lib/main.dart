@@ -36,13 +36,7 @@ class WiringApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'WireGenie',
-      //theme: ThemeData(primarySwatch: Colors.blue),
-        darkTheme: ThemeData(
-          brightness: Brightness.dark,
-          primarySwatch: Colors.indigo,
-          scaffoldBackgroundColor: Colors.grey[900],
-          // Define other dark theme properties
-        ),
+      theme: ThemeData(primarySwatch: Colors.blue),
       home: const HomeScreen(),
       routes: {
         '/home': (context) => const HomeScreen(),

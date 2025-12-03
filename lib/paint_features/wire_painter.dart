@@ -40,7 +40,7 @@ class WirePainter extends CustomPainter {
       // 4. Define the main wire paint (original logic)
       final mainWirePaint = Paint()
         ..color = wire.color
-        ..strokeWidth = 4
+        ..strokeWidth = 5
         ..style = PaintingStyle.stroke
         ..strokeCap = StrokeCap.round;
 
