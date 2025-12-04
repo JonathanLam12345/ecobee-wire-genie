@@ -46,7 +46,7 @@ class _PremiumWiringDiagramWidgetState
     ),
     Wire(
       id: 'TRANS',
-      points: [Offset(123, 159), Offset(158, 160), Offset(158, 156)],
+      points: [Offset(123, 159), Offset(159, 159), Offset(158, 156)],
       color: Colors.black,
     ),
   ];
@@ -366,7 +366,7 @@ class _PremiumWiringDiagramWidgetState
         anchor.href = url;
 
         // 3. Set the new filename using the sanitized title
-        anchor.download = 'Premium_$title2.png';
+        anchor.download = '$title2.png';
 
         // Log analytics event
         await analytics.logEvent(

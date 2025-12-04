@@ -142,7 +142,7 @@ class _PremiumWiringDiagramWidgetState
         Offset(225, 296),
         Offset(225, 361),
       ],
-      color: Colors.yellow,
+      color: Colors.transparent,
     ),
     Wire(
       id: 'W2',
@@ -153,20 +153,20 @@ class _PremiumWiringDiagramWidgetState
         Offset(176, 263),
         Offset(176, 361),
       ],
-      color: (Colors.grey[350])!,
+      color: (Colors.transparent)!,
     ),
     Wire(
       id: 'PEK Y',
-      points: [Offset(199, 245), Offset(199, 361)],
-      color: (Colors.grey[350])!,
+      points: [Offset(199, 249), Offset(199, 361)],
+      color: (Colors.yellow)!,
     ),
     Wire(
       id: 'PEK W',
       points: [
-        Offset(213, 247),
-        Offset(215, 280),
+        Offset(213, 249),
+        Offset(213, 280),
         Offset(152, 280),
-        Offset(152, 363),
+        Offset(152, 361),
       ],
       color: (Colors.grey[350])!,
     ),
@@ -222,7 +222,7 @@ class _PremiumWiringDiagramWidgetState
         Offset(218, 361),
       ],
 
-      color: Colors.red,
+      color: Colors.transparent,
     ),
     Wire(
       id: 'AC C',
@@ -246,7 +246,7 @@ class _PremiumWiringDiagramWidgetState
     ),
     Wire(
       id: 'G',
-      points: [Offset(61, 115), Offset(293, 113), Offset(296, 326)],
+      points: [Offset(63, 115), Offset(296, 113), Offset(296, 326)],
       color: Colors.green,
     ),
     Wire(
@@ -259,26 +259,26 @@ class _PremiumWiringDiagramWidgetState
       id: 'Y2',
       points: [Offset(63, 177), Offset(273, 179), Offset(273, 326)],
 
-      color: Colors.yellow,
+      color: Colors.transparent,
     ),
     Wire(
       id: 'W1',
-      points: [Offset(352, 73), Offset(203, 73), Offset(203, 328)],
+      points: [Offset(352, 73), Offset(203, 73), Offset(203, 326)],
       color: (Colors.grey[350])!,
     ),
     Wire(
       id: 'W2',
-      points: [Offset(352, 93), Offset(223, 92), Offset(223, 327)],
-      color: (Colors.grey[350])!,
+      points: [Offset(352, 93), Offset(223, 92), Offset(223, 326)],
+      color: Colors.transparent,
     ),
     Wire(
       id: 'O/B',
-      points: [Offset(61, 219), Offset(177, 219), Offset(179, 326)],
+      points: [Offset(63, 219), Offset(177, 219), Offset(179, 326)],
       color: Colors.orange,
     ),
     Wire(
       id: 'C',
-      points: [Offset(61, 136), Offset(348, 136), Offset(348, 326)],
+      points: [Offset(63, 136), Offset(348, 136), Offset(348, 326)],
       color: Colors.blue,
     ),
 
@@ -315,10 +315,11 @@ class _PremiumWiringDiagramWidgetState
     Wire(
       id: 'HP Y2',
       points: [
-        Offset(88, 325),
+        Offset(88, 326),
         Offset(87, 263),
         Offset(268, 263),
-        Offset(269, 325),
+        Offset(269, 326),
+        Offset(269, 326),
       ],
       color: Colors.yellow,
     ),
@@ -355,24 +356,24 @@ class _PremiumWiringDiagramWidgetState
     ),
     Wire(
       id: 'Rc',
-      points: [Offset(343, 49), Offset(155, 49), Offset(155, 229)],
+      points: [Offset(343, 49), Offset(155, 49), Offset(155, 227)],
 
       color: Colors.red,
     ),
     Wire(
       id: 'G',
-      points: [Offset(71, 73), Offset(209, 73), Offset(211, 228)],
+      points: [Offset(71, 73), Offset(209, 73), Offset(211, 227)],
 
       color: Colors.green,
     ),
     Wire(
       id: 'Y1',
-      points: [Offset(72, 121), Offset(101, 121), Offset(101, 227)],
+      points: [Offset(72, 121), Offset(100, 121), Offset(100, 227)],
       color: Colors.yellow,
     ),
     Wire(
       id: 'Y2',
-      points: [Offset(72, 145), Offset(128, 144), Offset(129, 228)],
+      points: [Offset(72, 145), Offset(127, 144), Offset(127, 227)],
       color: Colors.yellow,
     ),
     Wire(
