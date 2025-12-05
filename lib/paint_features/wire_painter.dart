@@ -19,7 +19,6 @@ class WirePainter extends CustomPainter {
     for (int index = 0; index < wires.length; index++) {
       final wire = wires[index];
 
-      // 1. Create the Path
       final path = Path()
         ..moveTo(wire.points.first.dx, wire.points.first.dy);
       for (int i = 1; i < wire.points.length; i++) {
@@ -37,7 +36,6 @@ class WirePainter extends CustomPainter {
       // canvas.drawPath(path, outlinePaint);
 
 
-      // 4. Define the main wire paint (original logic)
       final mainWirePaint = Paint()
         ..color = wire.color
         ..strokeWidth = 5

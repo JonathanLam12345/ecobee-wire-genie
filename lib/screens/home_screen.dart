@@ -69,7 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SelectableText(
-            '$version ($date)',
+            '$version $date',
             style: const TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
@@ -120,13 +120,14 @@ class _HomeScreenState extends State<HomeScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SelectableText(
-          "What's New in V1.1.0",
+          "What's New in V1.0.0",
           style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 16),
-
         // Add latest version info at the top here, and not at the bottom.
-        _buildWhatsNewItem('V1.0.0', 'December 3, 2025', 'Initial Release'),
+        _buildWhatsNewItem('V1.1.0',"", 'Coming Soon: Essential Wiring Images'),
+
+        _buildWhatsNewItem('V1.0.0', '(December 4, 2025)', 'Initial Release'),
       ],
     );
   }

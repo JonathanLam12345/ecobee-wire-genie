@@ -39,7 +39,23 @@ class WiringApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'WireGenie',
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: ThemeData(primarySwatch: Colors.blue,
+
+        //remove all transtional effects
+        pageTransitionsTheme: const PageTransitionsTheme(
+          builders: {
+            TargetPlatform.android: NoTransitionsBuilder(),
+            TargetPlatform.iOS: NoTransitionsBuilder(),
+            TargetPlatform.macOS: NoTransitionsBuilder(),
+            TargetPlatform.windows: NoTransitionsBuilder(),
+            TargetPlatform.linux: NoTransitionsBuilder(),
+            TargetPlatform.fuchsia: NoTransitionsBuilder(),
+          },
+        ),
+
+
+
+      ),
       home: const HomeScreen(),
       routes: {
         '/home': (context) => const HomeScreen(),
@@ -51,5 +67,21 @@ class WiringApp extends StatelessWidget {
         '/feature_request': (context) => const FeatureRequestPage(),
       },
     );
+  }
+}
+
+
+class NoTransitionsBuilder extends PageTransitionsBuilder {
+  const NoTransitionsBuilder();
+
+  @override
+  Widget buildTransitions<T>(
+      PageRoute<T> route,
+      BuildContext context,
+      Animation<double> animation,
+      Animation<double> secondaryAnimation,
+      Widget child,
+      ) {
+    return child; // No animation!
   }
 }

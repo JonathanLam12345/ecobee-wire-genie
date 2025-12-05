@@ -96,7 +96,7 @@ class _PremiumWiringDiagramWidgetState
         Offset(224, 306),
         Offset(224, 346),
       ],
-      color: Colors.red,
+      color: Colors.transparent,
     ),
     Wire(
       id: 'AC C',
@@ -110,7 +110,7 @@ class _PremiumWiringDiagramWidgetState
     ),
   ];
 
-  // NEW DIAGRAM WIRES (Second Column, First Row)
+
   final List<Wire> pek = [
     Wire(
       id: 'Rc',
@@ -120,7 +120,7 @@ class _PremiumWiringDiagramWidgetState
     Wire(
       id: 'C',
       points: [Offset(108, 66), Offset(236, 66), Offset(236, 139)],
-      color: Colors.orange,
+      color: Colors.green,
     ),
     Wire(
       id: 'PEK+',
@@ -130,7 +130,7 @@ class _PremiumWiringDiagramWidgetState
 
     Wire(
       id: 'W1',
-      points: [Offset(312, 57), Offset(197, 57), Offset(199, 140)],
+      points: [Offset(312, 57), Offset(199, 57), Offset(199, 139)],
       color: (Colors.grey[350])!,
     ),
     Wire(
@@ -300,7 +300,7 @@ class _PremiumWiringDiagramWidgetState
         Offset(197, 296),
         Offset(197, 326),
       ],
-      color: Colors.grey,
+      color: (Colors.grey[350])!,
     ),
     Wire(
       id: 'HP Y1',
@@ -321,7 +321,7 @@ class _PremiumWiringDiagramWidgetState
         Offset(269, 326),
         Offset(269, 326),
       ],
-      color: Colors.yellow,
+      color: Colors.transparent,
     ),
     Wire(
       id: 'HP R',
@@ -362,7 +362,7 @@ class _PremiumWiringDiagramWidgetState
     ),
     Wire(
       id: 'G',
-      points: [Offset(71, 73), Offset(209, 73), Offset(211, 227)],
+      points: [Offset(71, 73), Offset(210, 73), Offset(210, 227)],
 
       color: Colors.green,
     ),
@@ -374,7 +374,7 @@ class _PremiumWiringDiagramWidgetState
     Wire(
       id: 'Y2',
       points: [Offset(72, 145), Offset(127, 144), Offset(127, 227)],
-      color: Colors.yellow,
+      color: Colors.transparent,
     ),
     Wire(
       id: 'W1',
@@ -386,7 +386,7 @@ class _PremiumWiringDiagramWidgetState
       id: 'W2',
       points: [Offset(345, 121), Offset(287, 121), Offset(287, 336)],
 
-      color: (Colors.grey[350])!,
+      color: (Colors.transparent)!,
     ),
     Wire(
       id: 'C',
@@ -404,7 +404,7 @@ class _PremiumWiringDiagramWidgetState
       id: 'AC Y2',
       points: [Offset(127, 285), Offset(127, 336)],
 
-      color: Colors.red,
+      color: Colors.transparent,
     ),
     Wire(
       id: 'AC C',

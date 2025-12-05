@@ -1,11 +1,11 @@
 {
   "hosting": {
     "public": "build/web",
+    "site": "ecobee-wire-genie",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ],
-    "site": "ecobee-wiring-diagrams"
+    ]
   }
 }

@@ -94,19 +94,39 @@ class _HoverDropdownButtonState extends State<HoverDropdownButton> {
   }
 
   void _handleMenuItemTap(BuildContext context, String item) {
-    ScaffoldMessenger.of(
-      context,
-    ).showSnackBar(SnackBar(content: Text('Selected Thermostat Model: $item')));
+    // ScaffoldMessenger.of(
+    //   context,
+    // ).showSnackBar(SnackBar(content: Text('Selected Thermostat Model: $item')));
 
     if (item == 'Premium') {
       Navigator.pushNamed(context, '/premium');
     } else if (item == 'Enhanced') {
       Navigator.pushNamed(context, '/enhanced');
-    }
-    else if (item == 'ecobee3') {
+    } else if (item == 'Essential') {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          duration: Duration(seconds: 3),
+          content: Text('Essential - Coming Soon!!!'),
+        ),
+      );
+    } else if (item == 'ecobee4/5') {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          duration: Duration(seconds: 3),
+          content: Text('ecobee4/5 - Coming Soon!!!'),
+        ),
+      );
+    } else if (item == 'ecobee3 lite') {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          duration: Duration(seconds: 3),
+          content: Text('ecobee3 lite - Coming Soon!!!'),
+        ),
+      );
+    } else if (item == 'ecobee3') {
       Navigator.pushNamed(context, '/ecobee3');
-    }else {
-      Navigator.pushReplacementNamed(context, '/home');
+    } else {
+      //Navigator.pushReplacementNamed(context, '/home');
     }
   }
 

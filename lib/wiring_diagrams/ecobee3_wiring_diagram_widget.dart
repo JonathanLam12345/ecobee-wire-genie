@@ -423,13 +423,28 @@ class _Ecobee3WiringDiagramWidgetState
         anchor.download =
             'diagram_${widget.diagramIndex}_${DateTime.now().millisecondsSinceEpoch}.png';
 
+        String title="";
+
+        if (widget.diagramIndex == 0) {
+           title = "conventional";
+        } else if (widget.diagramIndex == 1) {
+          title = "heatPump";
+        } else if (widget.diagramIndex == 2) {
+          title = "heatPumpPEK";
+        } else if (widget.diagramIndex == 3) {
+          title = "dual";
+        } else if (widget.diagramIndex == 4) {
+          title = "accessory";
+        }
+
+
         // Log analytics event
         await analytics.logEvent(
-          name: 'ecobee3_image_download',
-          parameters: {
-            'diagram_title': widget.diagramIndex,
-            'diagram_index': widget.diagramIndex,
-          },
+          name: 'ecobee3_$title.png',
+          // parameters: {
+          //   'diagram_title': widget.diagramIndex,
+          //   'diagram_index': widget.diagramIndex,
+          // },
         );
 
         html.document.body!.append(anchor);

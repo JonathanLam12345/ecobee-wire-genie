@@ -102,7 +102,7 @@ class _PremiumWiringDiagramWidgetState
   final List<Wire> doorbell4 = [
     Wire(
       id: 'doorbell1',
-      points: [Offset(57, 118), Offset(127, 119)],
+      points: [Offset(57, 118), Offset(126, 119)],
       color: Colors.black,
     ),
     Wire(
@@ -112,17 +112,17 @@ class _PremiumWiringDiagramWidgetState
     ),
     Wire(
       id: 'TRANS',
-      points: [Offset(158, 119), Offset(180, 119), Offset(180, 115)],
+      points: [Offset(159, 119), Offset(180, 119), Offset(180, 115)],
       color: Colors.black,
     ),
     Wire(
       id: 'doorbell1',
-      points: [Offset(116, 263), Offset(134, 262), Offset(134, 125)],
+      points: [Offset(118, 263), Offset(134, 262), Offset(134, 127)],
       color: Colors.black,
     ),
     Wire(
       id: 'doorbell2',
-      points: [Offset(117, 296), Offset(184, 296), Offset(181, 115)],
+      points: [Offset(117, 297), Offset(181, 297), Offset(181, 115)],
       color: Colors.black,
     ),
   ];
@@ -347,7 +347,7 @@ class _PremiumWiringDiagramWidgetState
         final title = widget.diagramIndex == 0
             ? "Doorbell Camera-1"
             : widget.diagramIndex == 1
-            ? 'oorbell Camera-2'
+            ? 'Doorbell Camera-2'
             : widget.diagramIndex == 2
             ? 'Doorbell Camera-3'
             : widget.diagramIndex == 3
@@ -370,11 +370,11 @@ class _PremiumWiringDiagramWidgetState
 
         // Log analytics event
         await analytics.logEvent(
-          name: 'doorbell_image_download',
-          parameters: {
-            'diagram_title': title2,
-            'diagram_index': widget.diagramIndex,
-          },
+          name: 'doorbell_$title2.png',
+          // parameters: {
+          //   'diagram_title': title2,
+          //   'diagram_index': widget.diagramIndex,
+          // },
         );
 
         html.document.body!.append(anchor);

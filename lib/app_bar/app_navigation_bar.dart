@@ -83,13 +83,13 @@ class AppNavigationBar extends StatelessWidget implements PreferredSizeWidget {
             Navigator.pushNamed(context, '/doorbell');
           },
         ),
-        _buildNavBarButton(
-          label: "AI",
-          icon: Icons.psychology,
-          onTap: () {
-            // Add navigation logic for Switch+ here
-          },
-        ),
+        // _buildNavBarButton(
+        //   label: "AI",
+        //   icon: Icons.psychology,
+        //   onTap: () {
+        //     // Add navigation logic for Switch+ here
+        //   },
+        // ),
         _buildNavBarButton(
           label: "About us",
           icon: Icons.info,

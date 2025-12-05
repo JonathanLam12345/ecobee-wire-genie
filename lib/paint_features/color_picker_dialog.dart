@@ -15,8 +15,9 @@ class ColorPickerDialog extends StatelessWidget {
       Colors.yellow,
       Colors.orange,
       Colors.purple,
+      Colors.brown,
       Colors.black,
-      Colors.grey,
+      Colors.grey[350],
       Colors.white
     ];
 
