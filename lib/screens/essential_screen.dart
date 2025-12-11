@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import '../app_bar/app_navigation_bar.dart';
 import '../wiring_diagrams/enhanced_wiring_diagram_widget.dart';
+import '../wiring_diagrams/essential_wiring_diagram_widget.dart';
 
-class EnhancedScreen extends StatefulWidget {
-  const EnhancedScreen({super.key});
+class EssentialScreen extends StatefulWidget {
+  const EssentialScreen({super.key});
 
   @override
-  State<EnhancedScreen> createState() => _EnhancedScreenState();
+  State<EssentialScreen> createState() => _EssentialScreenState();
 }
 
-class _EnhancedScreenState extends State<EnhancedScreen> {
+class _EssentialScreenState extends State<EssentialScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,10 +30,10 @@ class _EnhancedScreenState extends State<EnhancedScreen> {
                 spacing: 16.0,
                 runSpacing: 16.0,
                 alignment: WrapAlignment.center,
-                children: List.generate(4, (index) {
+                children: List.generate(5, (index) {
                   //return SizedBox.shrink();
                   return
-                    EnhancedWiringDiagramWidget(
+                    EssentialWiringDiagramWidget(
                       key: GlobalKey(), // unique key per instance
                       diagramIndex: index,
                     );

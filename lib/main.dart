@@ -1,5 +1,6 @@
 import 'package:ecobee_wire_genie/screens/doorbell_screen.dart';
 import 'package:ecobee_wire_genie/screens/enhanced_screen.dart';
+import 'package:ecobee_wire_genie/screens/essential_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
@@ -63,6 +64,7 @@ class WiringApp extends StatelessWidget {
         '/premium': (context) => const PremiumScreen(),
         '/ecobee3': (context) => const Ecobee3Screen(),
         '/enhanced': (context) => const EnhancedScreen(),
+        '/essential': (context) => const EssentialScreen(),
         '/doorbell': (context) => const DoorbellScreen(),
         '/feature_request': (context) => const FeatureRequestPage(),
       },

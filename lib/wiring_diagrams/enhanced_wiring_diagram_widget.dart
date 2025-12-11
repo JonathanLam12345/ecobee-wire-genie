@@ -33,10 +33,10 @@ class EnhancedWiringDiagramWidget extends StatefulWidget {
 
   @override
   State<EnhancedWiringDiagramWidget> createState() =>
-      _PremiumWiringDiagramWidgetState();
+      _EnhancedWiringDiagramWidgetState();
 }
 
-class _PremiumWiringDiagramWidgetState
+class _EnhancedWiringDiagramWidgetState
     extends State<EnhancedWiringDiagramWidget> {
   // Firebase Analytics instance
   final FirebaseAnalytics analytics = FirebaseAnalytics.instance;

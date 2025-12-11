@@ -103,12 +103,9 @@ class _HoverDropdownButtonState extends State<HoverDropdownButton> {
     } else if (item == 'Enhanced') {
       Navigator.pushNamed(context, '/enhanced');
     } else if (item == 'Essential') {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          duration: Duration(seconds: 3),
-          content: Text('Essential - Coming Soon!!!'),
-        ),
-      );
+
+          Navigator.pushNamed(context, '/essential');
+
     } else if (item == 'ecobee4/5') {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
