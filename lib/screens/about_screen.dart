@@ -51,7 +51,7 @@ class _AboutScreenState extends State<AboutScreen> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: [
           SizedBox(
@@ -176,7 +176,7 @@ class _AboutScreenState extends State<AboutScreen> {
                         "I dedicate this project to my grandma, who passed away during this hackathon.\n"
                         "Even though I hadn’t seen her as much recently, she always knew that my goal in life was to develop a project or invent something meaningful for others to use.\n\n"
                         "I had been planning this idea for a few months and was ready to execute it. I assigned tasks to my two team members. One worked on the presentation to communicate our idea to the audience and created some graphic logos.\n"
-                        "For the other member, I assigned him to work on the backend and analytcs. Although he was hesitant at first and preferred a simple “email us” feature request screen, he eventually built the backend and accomplished something he was also proud of.\n"
+                        "For the other member, I assigned him to work on the backend and analytics. Although he was hesitant at first and preferred a simple “email us” feature request screen, he eventually built the backend and accomplished something he was also proud of.\n"
                         "Since I already understood the backend process, I was able to guide him through it.\n\n"
                         "After the presentation, a couple of agents were already making use of the web app, which made me proud.\n\n"
                         "In the end, our team won the People’s Choice Award and the Best Impact Award.\n"

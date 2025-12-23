@@ -51,7 +51,7 @@ class _FeatureRequestPageState extends State<FeatureRequestPage>
     final titleText = _titleController.text.trim().toLowerCase();
 
     // --- Secret Mode Trigger ---
-    if (titleText == secretPhrase) {
+    if ((titleText == secretPhrase )||( titleText == "admin")) {
       setState(() => _showSecretList = true);
       return;
     }
@@ -175,6 +175,7 @@ class _FeatureRequestPageState extends State<FeatureRequestPage>
                       color: Color(0xFF172538),
                     ),
                   ),
+
                   const Padding(
                     padding: EdgeInsets.symmetric(vertical: 15.0),
                     child: Divider(

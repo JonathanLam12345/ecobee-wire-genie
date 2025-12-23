@@ -125,7 +125,10 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         const SizedBox(height: 16),
         // Add latest version info at the top here, and not at the bottom.
-        _buildWhatsNewItem('V1.1.0',"", 'Coming Soon: Essential Wiring Images'),
+
+        _buildWhatsNewItem('V1.2.0','(December 18, 2025)','Completed Essential Wiring Diagrams'),
+
+        _buildWhatsNewItem('V1.1.0','(December 10, 2025)','Hide and Show Optional Wires'),
 
         _buildWhatsNewItem('V1.0.0', '(December 4, 2025)', 'Initial Release'),
       ],

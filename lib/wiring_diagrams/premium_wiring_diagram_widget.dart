@@ -33,6 +33,7 @@ class _PremiumWiringDiagramWidgetState
 
   late List<Wire> wires;
   bool showWireIds = false;
+  bool _optionalWiresHidden = false; // Toggle state
 
   final List<Wire> conventional = [
     Wire(
@@ -43,23 +44,23 @@ class _PremiumWiringDiagramWidgetState
 
     Wire(
       id: 'W2',
-      points: [Offset(332, 98), Offset(167, 98), Offset(167, 346)],
+      points: [Offset(331, 98), Offset(167, 98), Offset(167, 346)],
       color: (Colors.transparent)!,
     ),
     Wire(
       id: 'AC Y2',
       points: [
-        Offset(52, 346),
-        Offset(52, 306),
-        Offset(224, 306),
-        Offset(224, 346),
+        Offset(54, 346),
+        Offset(54, 307),
+        Offset(225, 307),
+        Offset(225, 346),
       ],
       color: Colors.transparent,
     ),
 
     Wire(
       id: 'Rc',
-      points: [Offset(333, 17), Offset(289, 17), Offset(289, 346)],
+      points: [Offset(331, 18), Offset(289, 18), Offset(289, 346)],
       color: Colors.red,
     ),
     Wire(
@@ -253,7 +254,7 @@ class _PremiumWiringDiagramWidgetState
 
     Wire(
       id: 'Y2',
-      points: [Offset(63, 177), Offset(273, 179), Offset(273, 326)],
+      points: [Offset(63, 177), Offset(273, 177), Offset(273, 326)],
 
       color: Colors.transparent,
     ),
@@ -375,7 +376,7 @@ class _PremiumWiringDiagramWidgetState
 
     Wire(
       id: 'W2',
-      points: [Offset(345, 121), Offset(287, 121), Offset(287, 336)],
+      points: [Offset(343, 121), Offset(287, 121), Offset(287, 336)],
 
       color: (Colors.transparent)!,
     ),
@@ -435,8 +436,8 @@ class _PremiumWiringDiagramWidgetState
       points: [
         Offset(183, 286),
         Offset(183, 312),
-        Offset(156, 312),
-        Offset(156, 336),
+        Offset(155, 312),
+        Offset(155, 336),
       ],
 
       color: (Colors.grey[350])!,
@@ -472,10 +473,33 @@ class _PremiumWiringDiagramWidgetState
         //wires = List.from(accessory);
       }
       showWireIds = false;
+      _optionalWiresHidden = false;
     });
   }
 
   void toggleWireIds() => setState(() => showWireIds = !showWireIds);
+
+
+  void toggleOptionalWires() {
+    setState(() {
+      _optionalWiresHidden = !_optionalWiresHidden;
+      wires = wires.map((wire) {
+        if (wire.id == 'Y2') {
+          return wire.copyWith(color: _optionalWiresHidden ? Colors.white : Colors.transparent);
+        }
+        if (wire.id == 'W2') {
+          return wire.copyWith(color: _optionalWiresHidden ? Colors.white : Colors.transparent);
+        }
+        if (wire.id == 'AC Y2') {
+          return wire.copyWith(color: _optionalWiresHidden ? Colors.white : Colors.transparent);
+        }
+        if (wire.id == 'HP Y2') {
+          return wire.copyWith(color: _optionalWiresHidden ? Colors.white : Colors.transparent);
+        }
+        return wire;
+      }).toList();
+    });
+  }
 
   void changeWireColor(int index) async {
     final pickedColor = await showDialog<Color>(
@@ -747,10 +771,16 @@ class _PremiumWiringDiagramWidgetState
                   child: const Text("Reset to Default"),
                 ),
                 ElevatedButton.icon(
+                  icon: Icon(_optionalWiresHidden ? Icons.visibility : Icons.visibility_off),
+                  label: Text(_optionalWiresHidden ? "SHOW OPTIONAL WIRE" : " HIDE OPTIONAL WIRE "),
+                  style: ElevatedButton.styleFrom(backgroundColor: _optionalWiresHidden ? Colors.grey : Colors.redAccent[100]),
+                  onPressed: toggleOptionalWires,
+                ),
+                ElevatedButton.icon(
                   icon: Icon(
                     showWireIds ? Icons.visibility : Icons.visibility_off,
                   ),
-                  label: Text(showWireIds ? "Hide Wire IDs" : "Show Wire IDs"),
+                  label: Text(showWireIds ? " Hide Wire IDs " : "Show Wire IDs"),
                   onPressed: toggleWireIds,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blueAccent,

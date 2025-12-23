@@ -126,7 +126,7 @@ class _PremiumWiringDiagramWidgetState
       color: Colors.black,
     ),
   ];
-
+/////////////////////////////
   final List<Wire> doorbell5 = [
     Wire(
       id: 'doorbell1',
@@ -145,7 +145,7 @@ class _PremiumWiringDiagramWidgetState
     ),
     Wire(
       id: 'button1',
-      points: [Offset(83, 270), Offset(176, 268), Offset(175, 117)],
+      points: [Offset(84, 270), Offset(176, 270), Offset(175, 117)],
       color: Colors.black,
     ),
     Wire(
