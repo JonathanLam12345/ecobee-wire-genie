@@ -4,12 +4,14 @@ class HoverDropdownButton extends StatefulWidget {
   final String label;
   final IconData icon;
   final List<String> menuItems;
+  final bool isActive; // New property to track if a sub-item is active
 
   const HoverDropdownButton({
     super.key,
     required this.label,
     required this.icon,
     required this.menuItems,
+    this.isActive = false, // Defaults to false
   });
 
   @override
@@ -18,7 +20,6 @@ class HoverDropdownButton extends StatefulWidget {
 
 class _HoverDropdownButtonState extends State<HoverDropdownButton> {
   final GlobalKey _buttonKey = GlobalKey();
-
   OverlayEntry? _overlayEntry;
 
   @override
@@ -31,13 +32,14 @@ class _HoverDropdownButtonState extends State<HoverDropdownButton> {
     if (_overlayEntry != null) return;
 
     final RenderBox renderBox =
-        _buttonKey.currentContext?.findRenderObject() as RenderBox;
+    _buttonKey.currentContext?.findRenderObject() as RenderBox;
     final Offset position = renderBox.localToGlobal(Offset.zero);
 
     _overlayEntry = OverlayEntry(
       builder: (context) {
         return Stack(
           children: [
+            // Detect clicks outside to close
             Positioned.fill(
               child: GestureDetector(
                 onTap: _removeOverlay,
@@ -54,6 +56,7 @@ class _HoverDropdownButtonState extends State<HoverDropdownButton> {
                 child: Material(
                   elevation: 4.0,
                   borderRadius: BorderRadius.circular(4.0),
+                  color: Colors.white,
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,7 +64,7 @@ class _HoverDropdownButtonState extends State<HoverDropdownButton> {
                       return InkWell(
                         onTap: () {
                           _handleMenuItemTap(context, item);
-                          _removeOverlay(); // Dismiss after selection
+                          _removeOverlay();
                         },
                         child: Container(
                           padding: const EdgeInsets.symmetric(
@@ -84,7 +87,6 @@ class _HoverDropdownButtonState extends State<HoverDropdownButton> {
         );
       },
     );
-    // Insert the menu into the overlay
     Overlay.of(context).insert(_overlayEntry!);
   }
 
@@ -94,58 +96,60 @@ class _HoverDropdownButtonState extends State<HoverDropdownButton> {
   }
 
   void _handleMenuItemTap(BuildContext context, String item) {
-    // ScaffoldMessenger.of(
-    //   context,
-    // ).showSnackBar(SnackBar(content: Text('Selected Thermostat Model: $item')));
-
     if (item == 'Premium') {
       Navigator.pushNamed(context, '/premium');
     } else if (item == 'Enhanced') {
       Navigator.pushNamed(context, '/enhanced');
     } else if (item == 'Essential') {
-
-          Navigator.pushNamed(context, '/essential');
-
+      Navigator.pushNamed(context, '/essential');
+    } else if (item == 'Heat-Only') {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(duration: Duration(seconds: 3), content: Text('Heat-Only - Coming Soon!!!')),
+      );
     } else if (item == 'ecobee4/5') {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          duration: Duration(seconds: 3),
-          content: Text('ecobee4/5 - Coming Soon!!!'),
-        ),
+        const SnackBar(duration: Duration(seconds: 3), content: Text('ecobee4/5 - Coming Soon!!!')),
       );
     } else if (item == 'ecobee3 lite') {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          duration: Duration(seconds: 3),
-          content: Text('ecobee3 lite - Coming Soon!!!'),
-        ),
+        const SnackBar(duration: Duration(seconds: 3), content: Text('ecobee3 lite - Coming Soon!!!')),
       );
     } else if (item == 'ecobee3') {
       Navigator.pushNamed(context, '/ecobee3');
-    } else {
-      //Navigator.pushReplacementNamed(context, '/home');
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return MouseRegion(
-      onEnter: (_) => _showOverlay(), // Show menu on hover enter
-      onExit: (_) {
-        // This remains empty, allowing the cursor to move from the button
-        // to the dropdown content without dismissing the menu prematurely.
-      },
-      child: TextButton.icon(
-        key: _buttonKey,
-        // Attach key for positioning
-        icon: Icon(widget.icon, color: Colors.white),
-        label: Text(widget.label, style: const TextStyle(color: Colors.white)),
-        onPressed: () {
-          // Default action on click (e.g., navigate to the home page, usually for the main category)
-          _handleMenuItemTap(context, widget.menuItems.first);
-        },
-        style: TextButton.styleFrom(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
+      onEnter: (_) => _showOverlay(),
+      child: Container(
+        // The decoration provides the visual "Active" indicator
+        margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
+        decoration: BoxDecoration(
+          // Subtle highlight background
+          color: widget.isActive ? Colors.white.withOpacity(0.10) : Colors.transparent,
+          borderRadius: BorderRadius.circular(8),
+          // Bottom underline to show active status
+
+        ),
+        child: TextButton.icon(
+          key: _buttonKey,
+          icon: Icon(widget.icon, color: Colors.white),
+          label: Text(
+            widget.label,
+            style: TextStyle(
+              color: Colors.white,
+              // Make text bold if active
+              fontWeight: widget.isActive ? FontWeight.bold : FontWeight.normal,
+            ),
+          ),
+          onPressed: () {
+            _handleMenuItemTap(context, widget.menuItems.first);
+          },
+          style: TextButton.styleFrom(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+          ),
         ),
       ),
     );

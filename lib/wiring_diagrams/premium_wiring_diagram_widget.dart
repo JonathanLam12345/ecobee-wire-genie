@@ -301,7 +301,7 @@ class _PremiumWiringDiagramWidgetState
 
     Wire(
       id: 'O/B',
-      points: [Offset(63, 219), Offset(177, 219), Offset(179, 326)],
+      points: [Offset(63, 219), Offset(179, 219), Offset(179, 326)],
       color: Colors.orange,
     ),
     Wire(
@@ -315,8 +315,8 @@ class _PremiumWiringDiagramWidgetState
       points: [
         Offset(16, 326),
         Offset(16, 313),
-        Offset(173, 313),
-        Offset(173, 326),
+        Offset(172, 313),
+        Offset(172, 326),
       ],
       color: Colors.orange,
     ),
@@ -335,7 +335,7 @@ class _PremiumWiringDiagramWidgetState
       points: [
         Offset(64, 326),
         Offset(64, 280),
-        Offset(243, 280),
+        Offset(244, 280),
         Offset(244, 326),
       ],
       color: Colors.yellow,
@@ -345,7 +345,7 @@ class _PremiumWiringDiagramWidgetState
       id: 'HP R',
       points: [
         Offset(111, 326),
-        Offset(112, 247),
+        Offset(111, 247),
         Offset(315, 247),
         Offset(315, 326),
       ],
@@ -617,9 +617,12 @@ class _PremiumWiringDiagramWidgetState
         return;
       }
 
-      final ui.Image image = await boundary.toImage(
-        pixelRatio: ui.window.devicePixelRatio,
-      );
+      const double targetWidth = 875.0;
+      const double logicalWidth = 420.0;
+      const double ratio = targetWidth / logicalWidth;
+
+      // 2. Capture the image with the specific pixelRatio
+      final ui.Image image = await boundary.toImage(pixelRatio: ratio);
       final ByteData? byteData = await image.toByteData(
         format: ui.ImageByteFormat.png,
       );

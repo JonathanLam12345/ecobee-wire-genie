@@ -663,9 +663,13 @@ class _EssentialWiringDiagramWidgetState
         return;
       }
 
-      final ui.Image image = await boundary.toImage(
-        pixelRatio: ui.window.devicePixelRatio,
-      );
+      const double targetWidth = 875.0;
+      const double logicalWidth = 420.0;
+      const double ratio = targetWidth / logicalWidth;
+
+      // 2. Capture the image with the specific pixelRatio
+      final ui.Image image = await boundary.toImage(pixelRatio: ratio);
+
       final ByteData? byteData = await image.toByteData(
         format: ui.ImageByteFormat.png,
       );
