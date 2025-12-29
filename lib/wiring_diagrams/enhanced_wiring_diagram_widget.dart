@@ -306,8 +306,8 @@ class _EnhancedWiringDiagramWidgetState
     ),
     Wire(
       id: 'O/B*',
-      points: [Offset(350, 116), Offset(183, 116), Offset(183, 289)],
-      color: (Colors.orange)!,
+      points: [Offset(350, 116), Offset(184, 116), Offset(184, 289)],
+      color: (Colors.orange),
     ),
 
     Wire(
@@ -316,8 +316,8 @@ class _EnhancedWiringDiagramWidgetState
         Offset(64, 134),
         Offset(279, 134),
         Offset(279, 159),
-        Offset(352, 159),
-        Offset(352, 290),
+        Offset(353, 159),
+        Offset(353, 290),
       ],
       color: Colors.blue,
     ),
@@ -325,10 +325,10 @@ class _EnhancedWiringDiagramWidgetState
     Wire(
       id: 'HP O/B',
       points: [
-        Offset(18, 289),
-        Offset(18, 276),
-        Offset(179, 276),
-        Offset(179, 289),
+        Offset(19, 289),
+        Offset(19, 277),
+        Offset(180, 277),
+        Offset(180, 289),
       ],
       color: Colors.orange,
     ),
@@ -348,8 +348,8 @@ class _EnhancedWiringDiagramWidgetState
       points: [
         Offset(66, 289),
         Offset(66, 253),
-        Offset(253, 253),
-        Offset(253, 289),
+        Offset(252, 253),
+        Offset(252, 289),
       ],
       color: Colors.yellow,
     ),
